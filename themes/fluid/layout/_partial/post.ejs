@@ -1,0 +1,19 @@
+<div class="row mx-auto index-card">
+  <% if (post.index_img) { %>
+    <div class="col-12 col-md-4 mx-auto index-img">
+      <a href="<%= url_for(post.path) %>" target="_self">
+        <img src="<%= post.index_img %>" alt="<%= post.title %>">
+      </a>
+    </div>
+  <% } %>
+  <article class="col-12 col-md-8 mx-auto index-info">
+    <h2 class="index-header">
+      <a href="<%= url_for(post.path) %>"><%= post.title %></a>
+    </h2>
+    <p class="index-excerpt"><%= post.excerpt || post.content.substring(0, 100) %></p>
+    <div class="index-btm">
+      <span><%= post.date.format('YYYY-MM-DD') %></span>
+      <span><%= post.categories.map(c => c.name).join(', ') %></span>
+    </div>
+  </article>
+</div>

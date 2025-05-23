@@ -1,0 +1,65 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #00ff00 !important; /* 测试样式 */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1b013f;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav {
+    margin: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+.article {
+    border-bottom: 3px solid white !important; /* 使用 !important 提高优先级 */
+    margin-bottom: 20px; /* 增加间距 */
+    padding-bottom: 10px; /* 增加内边距 */
+    background-color: #f9f9f9; /* 测试样式，验证 CSS 是否生效 */
+}
+
+.col-12.col-md-12.mx-auto.index-info {
+    border-bottom: 5px solid #ccc !important; /* 确保分隔线颜色明显 */
+    margin-bottom: 20px; /* 增加间距 */
+    padding-bottom: 10px; /* 增加内边距 */
+    background-color: #f9f9f9; /* 测试样式，验证 CSS 是否生效 */
+}
+
+div.row.mx-auto.index-card > article.col-12.col-md-12.mx-auto.index-info {
+    border-bottom: 5px solid #ccc !important; /* 提高优先级 */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
