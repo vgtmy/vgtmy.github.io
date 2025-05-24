@@ -373,6 +373,10 @@ navbar:
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
+    - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
+    - { key: "今日新闻", link: "/https://news.erlangsh.us.kg", icon: "iconfont icon-news-fill" }
+
+  # 导航栏右侧的社交链接，可自行增减，icon 是 css class，可以省略；增加 name 可以强制显示指定名称
     #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
