@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://vgtmy.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -22,7 +22,7 @@ pretty_urls:
 
 # Directory
 source_dir: source
-public_dir: public
+public_dir: public # 确保输出目录为 public
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
@@ -102,6 +102,6 @@ theme: fluid # 确保主题名称正确
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: https://github.com/jxntmy/hexo.git
-  branch: [branch]
-  message: [message]
+  repo: https://github.com/vgtmy/vgtmy.github.io.git # 使用 SSH 地址
+  branch: main
+  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}" # 确保 message 是字符串

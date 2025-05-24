@@ -10,6 +10,7 @@ tags:
 index_img: /img/helloworld.jpg
 banner_img: /img/世界你好.jpeg
 banner_mask_alpha: 0.6
+sticky: 100
 comment: 'valine'
 ---
 
