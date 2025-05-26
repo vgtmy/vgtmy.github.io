@@ -1,0 +1,1126 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="二郎神表弟">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="将 Hexo 博客部署到阿里云服务器的完整流程如下，我们会从本地部署到服务器、配置域名、开放端口、防火墙、安全组等步骤一步一步来，适合初学者。  博客部署到阿里云🧱 一、前提准备你已经有这些资源：  本地 Hexo 博客（可以正常 hexo s 预览） 一台阿里云服务器（IP 是 47.111.124.118） 一个域名 vgtmy.com（在阿里云买的）  我们将做的事情是：  把本地 He">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客部署到阿里云+GitHub自动部署全流程指南.md">
+<meta property="og:url" content="https://vgtmy.github.io/2025/05/26/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91-GitHub%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B%E6%8C%87%E5%8D%97-md/index.html">
+<meta property="og:site_name" content="光阴的故事">
+<meta property="og:description" content="将 Hexo 博客部署到阿里云服务器的完整流程如下，我们会从本地部署到服务器、配置域名、开放端口、防火墙、安全组等步骤一步一步来，适合初学者。  博客部署到阿里云🧱 一、前提准备你已经有这些资源：  本地 Hexo 博客（可以正常 hexo s 预览） 一台阿里云服务器（IP 是 47.111.124.118） 一个域名 vgtmy.com（在阿里云买的）  我们将做的事情是：  把本地 He">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://vgtmy.github.io/img/aliyun.jpg">
+<meta property="article:published_time" content="2025-05-26T07:01:50.000Z">
+<meta property="article:modified_time" content="2025-05-26T08:03:58.699Z">
+<meta property="article:author" content="二郎神表弟">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="阿里云">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="自动部署">
+<meta property="article:tag" content="CI&#x2F;CD">
+<meta property="article:tag" content="Https">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vgtmy.github.io/img/aliyun.jpg">
+  
+  
+  
+  <title>博客部署到阿里云+GitHub自动部署全流程指南.md - 光阴的故事</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"vgtmy.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":90,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"88KjzOxOR2oBRVtIgnppDmWG-gzGzoHsz","app_key":"4LSiCze99E6WNi3YBrbrToct","server_url":"https://88kjzoxo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-05-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>光阴的故事</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://news.erlangsh.us.kg" target="_self">
+                <i class="iconfont icon-news-fill"></i>
+                <span>今日新闻</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/aliyungb.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="博客部署到阿里云+GitHub自动部署全流程指南.md"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        二郎神表弟
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-26 15:01" pubdate>
+          2025年5月26日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">博客部署到阿里云+GitHub自动部署全流程指南.md</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年5月26日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <!-- 这里是模板内容 -->
+<p>将 Hexo 博客部署到阿里云服务器的完整流程如下，我们会从本地部署到服务器、配置域名、开放端口、防火墙、安全组等步骤一步一步来，适合初学者。</p>
+<hr>
+<h1 id="博客部署到阿里云"><a href="#博客部署到阿里云" class="headerlink" title="博客部署到阿里云"></a>博客部署到阿里云</h1><h2 id="🧱-一、前提准备"><a href="#🧱-一、前提准备" class="headerlink" title="🧱 一、前提准备"></a>🧱 一、前提准备</h2><p>你已经有这些资源：</p>
+<ul>
+<li>本地 Hexo 博客（可以正常 <code>hexo s</code> 预览）</li>
+<li>一台阿里云服务器（IP 是 <code>47.111.124.118</code>）</li>
+<li>一个域名 <code>vgtmy.com</code>（在阿里云买的）</li>
+</ul>
+<p>我们将做的事情是：</p>
+<ol>
+<li>把本地 Hexo 的静态文件传到服务器</li>
+<li>用 Nginx 做网页服务器，部署 Hexo 到公网</li>
+<li>配置阿里云服务器的防火墙和安全组</li>
+<li>把域名 <code>vgtmy.com</code> 解析到你的服务器</li>
+</ol>
+<hr>
+<h2 id="🧰-二、安装和准备环境"><a href="#🧰-二、安装和准备环境" class="headerlink" title="🧰 二、安装和准备环境"></a>🧰 二、安装和准备环境</h2><h3 id="1-本地打包博客"><a href="#1-本地打包博客" class="headerlink" title="1. 本地打包博客"></a>1. 本地打包博客</h3><p>在本地 Hexo 根目录下运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo g<br></code></pre></td></tr></table></figure>
+
+<p>生成好的静态文件会在 <code>public/</code> 目录下。</p>
+<hr>
+<h3 id="2-连接你的阿里云服务器（使用-SSH）"><a href="#2-连接你的阿里云服务器（使用-SSH）" class="headerlink" title="2. 连接你的阿里云服务器（使用 SSH）"></a>2. 连接你的阿里云服务器（使用 SSH）</h3><p>在终端连接服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh root@47.111.124.118<br></code></pre></td></tr></table></figure>
+
+<p>（第一次登录会提示是否确认，输入 <code>yes</code>）</p>
+<hr>
+<h3 id="3-安装-Nginx（在服务器上）"><a href="#3-安装-Nginx（在服务器上）" class="headerlink" title="3. 安装 Nginx（在服务器上）"></a>3. 安装 Nginx（在服务器上）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 更新系统</span><br>apt update &amp;&amp; apt upgrade -y     <span class="hljs-comment"># 如果是 Ubuntu 系统</span><br><span class="hljs-comment"># 安装 Nginx</span><br>apt install nginx -y<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🚚-三、部署-Hexo-到服务器"><a href="#🚚-三、部署-Hexo-到服务器" class="headerlink" title="🚚 三、部署 Hexo 到服务器"></a>🚚 三、部署 Hexo 到服务器</h2><h3 id="1-使用-scp-上传-public-文件夹到服务器"><a href="#1-使用-scp-上传-public-文件夹到服务器" class="headerlink" title="1. 使用 scp 上传 public/ 文件夹到服务器"></a>1. 使用 <code>scp</code> 上传 <code>public/</code> 文件夹到服务器</h3><p>在本地终端（Hexo 根目录下）运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">scp -r ./public/* root@47.111.124.118:/var/www/html/<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>/var/www/html/</code> 是 Nginx 默认的网站根目录。</p>
+</blockquote>
+<hr>
+<h3 id="2-重启-Nginx"><a href="#2-重启-Nginx" class="headerlink" title="2. 重启 Nginx"></a>2. 重启 Nginx</h3><p>在服务器上：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl restart nginx<br></code></pre></td></tr></table></figure>
+
+<p>然后在浏览器访问：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">http:</span><span class="hljs-comment">//47.111.124.118</span><br></code></pre></td></tr></table></figure>
+
+<p>你应该就能看到博客了！</p>
+<hr>
+<h2 id="🔐-四、设置阿里云防火墙与安全组"><a href="#🔐-四、设置阿里云防火墙与安全组" class="headerlink" title="🔐 四、设置阿里云防火墙与安全组"></a>🔐 四、设置阿里云防火墙与安全组</h2><p>登录阿里云控制台：</p>
+<h3 id="1-打开服务器的-80-端口（HTTP）"><a href="#1-打开服务器的-80-端口（HTTP）" class="headerlink" title="1. 打开服务器的 80 端口（HTTP）"></a>1. 打开服务器的 80 端口（HTTP）</h3><ul>
+<li><p>进入【云服务器 ECS】</p>
+</li>
+<li><p>找到你的实例，点击【安全组】</p>
+</li>
+<li><p>点击【配置规则】&gt;【添加安全组规则】</p>
+<ul>
+<li>协议类型：TCP</li>
+<li>端口范围：80</li>
+<li>授权对象：0.0.0.0&#x2F;0</li>
+<li>备注：开放网页访问</li>
+</ul>
+</li>
+</ul>
+<p>保存即可。</p>
+<hr>
+<h2 id="🌐-五、配置域名解析（vgtmy-com）"><a href="#🌐-五、配置域名解析（vgtmy-com）" class="headerlink" title="🌐 五、配置域名解析（vgtmy.com）"></a>🌐 五、配置域名解析（vgtmy.com）</h2><p>登录阿里云【域名控制台】：</p>
+<ol>
+<li>找到你的域名 <code>vgtmy.com</code></li>
+<li>进入【解析】页面，添加解析记录：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>主机记录</th>
+<th>记录值</th>
+<th>线路</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>@</td>
+<td>47.111.124.118</td>
+<td>默认线路</td>
+</tr>
+</tbody></table>
+<p>如果你想让 <code>www.vgtmy.com</code> 也能访问：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>主机记录</th>
+<th>记录值</th>
+<th>线路</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>www</td>
+<td>47.111.124.118</td>
+<td>默认线路</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🧪-六、访问网站"><a href="#🧪-六、访问网站" class="headerlink" title="🧪 六、访问网站"></a>🧪 六、访问网站</h2><p>解析通常需要几分钟到一小时不等。</p>
+<p>你可以打开浏览器访问：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">http:</span><span class="hljs-comment">//vgtmy.com</span><br></code></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">http:</span><span class="hljs-comment">//www.vgtmy.com</span><br></code></pre></td></tr></table></figure>
+
+<p>就能看到你的博客上线了！</p>
+<hr>
+<h1 id="配置-HTTPS"><a href="#配置-HTTPS" class="headerlink" title="配置 HTTPS"></a>配置 HTTPS</h1><p>我们现在来为你的 Hexo 博客配置 <strong>HTTPS（SSL证书）</strong>，让访问 <code>https://vgtmy.com</code> 更安全、专业。</p>
+<hr>
+<h2 id="🛠️-一、申请免费-SSL-证书（阿里云）"><a href="#🛠️-一、申请免费-SSL-证书（阿里云）" class="headerlink" title="🛠️ 一、申请免费 SSL 证书（阿里云）"></a>🛠️ 一、申请免费 SSL 证书（阿里云）</h2><ol>
+<li><p>打开阿里云控制台：<a target="_blank" rel="noopener" href="https://yundun.console.aliyun.com/">https://yundun.console.aliyun.com</a></p>
+</li>
+<li><p>左侧进入 <strong>SSL证书管理</strong></p>
+</li>
+<li><p>点击【免费证书申请】</p>
+</li>
+<li><p>填写如下内容：</p>
+<ul>
+<li>证书品牌：<strong>阿里云</strong></li>
+<li>域名类型：<strong>单域名</strong></li>
+<li>域名：<code>vgtmy.com</code></li>
+</ul>
+</li>
+<li><p>选择 DNS 验证或 文件验证（推荐 DNS）</p>
+</li>
+</ol>
+<h4 id="✅-如果选择-DNS-验证："><a href="#✅-如果选择-DNS-验证：" class="headerlink" title="✅ 如果选择 DNS 验证："></a>✅ 如果选择 DNS 验证：</h4><ul>
+<li>系统会提示你添加一条解析记录（如 <code>_dnsauth.vgtmy.com</code> → 某个字符串）</li>
+<li>回到域名解析控制台，添加这条记录</li>
+<li>验证成功后，证书会在十几分钟内签发完成</li>
+</ul>
+<hr>
+<h2 id="💾-二、下载证书并上传到服务器"><a href="#💾-二、下载证书并上传到服务器" class="headerlink" title="💾 二、下载证书并上传到服务器"></a>💾 二、下载证书并上传到服务器</h2><p>签发完成后：</p>
+<ol>
+<li>在阿里云证书控制台中点击“下载”</li>
+<li>选择服务器类型：<strong>Nginx</strong></li>
+<li>下载压缩包（里面有两个文件，可能是 <code>.pem</code> 和 <code>.key</code>）</li>
+</ol>
+<h4 id="然后："><a href="#然后：" class="headerlink" title="然后："></a>然后：</h4><p>将证书上传到服务器，比如 <code>/etc/nginx/ssl/</code> 目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p /etc/nginx/ssl<br>scp yourdomain.pem root@47.111.124.118:/etc/nginx/ssl/<br>scp yourdomain.key root@47.111.124.118:/etc/nginx/ssl/<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="⚙️-三、配置-Nginx-启用-HTTPS"><a href="#⚙️-三、配置-Nginx-启用-HTTPS" class="headerlink" title="⚙️ 三、配置 Nginx 启用 HTTPS"></a>⚙️ 三、配置 Nginx 启用 HTTPS</h2><p>编辑你的 Nginx 配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nano /etc/nginx/sites-available/default<br></code></pre></td></tr></table></figure>
+
+<p>把内容修改如下（或追加 SSL 配置）：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-section">server</span> &#123;<br>    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;<br>    <span class="hljs-attribute">server_name</span> vgtmy.com www.vgtmy.com;<br><br>    <span class="hljs-comment"># 自动跳转到 https</span><br>    <span class="hljs-attribute">return</span> <span class="hljs-number">301</span> https://<span class="hljs-variable">$host</span><span class="hljs-variable">$request_uri</span>;<br>&#125;<br><br><span class="hljs-section">server</span> &#123;<br>    <span class="hljs-attribute">listen</span> <span class="hljs-number">443</span> ssl;<br>    <span class="hljs-attribute">server_name</span> vgtmy.com www.vgtmy.com;<br><br>    <span class="hljs-attribute">ssl_certificate</span> /etc/nginx/ssl/yourdomain.pem;<br>    <span class="hljs-attribute">ssl_certificate_key</span> /etc/nginx/ssl/yourdomain.key;<br><br>    <span class="hljs-attribute">root</span> /var/www/html;<br>    <span class="hljs-attribute">index</span> index.html;<br><br>    <span class="hljs-section">location</span> / &#123;<br>        <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ =<span class="hljs-number">404</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>请根据你证书文件名替换 <code>yourdomain.pem</code> 和 <code>yourdomain.key</code>。</p>
+<hr>
+<h2 id="🔄-四、重启-Nginx-服务"><a href="#🔄-四、重启-Nginx-服务" class="headerlink" title="🔄 四、重启 Nginx 服务"></a>🔄 四、重启 Nginx 服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">nginx -t     <span class="hljs-comment"># 检查配置有没有错</span><br>systemctl reload nginx<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="✅-五、访问测试"><a href="#✅-五、访问测试" class="headerlink" title="✅ 五、访问测试"></a>✅ 五、访问测试</h2><p>现在你可以访问：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">https:</span><span class="hljs-comment">//vgtmy.com</span><br></code></pre></td></tr></table></figure>
+
+<p>如果看到小锁🔒图标，说明 HTTPS 配置成功啦！</p>
+<h1 id="自动续签（Let’s-Encrypt）"><a href="#自动续签（Let’s-Encrypt）" class="headerlink" title="自动续签（Let’s Encrypt）"></a>自动续签（Let’s Encrypt）</h1><p>阿里云免费证书不能自动续期，90天过期。你也可以使用 Let’s Encrypt 来实现自动续期，我可以帮你搭配 certbot 安装。</p>
+<hr>
+<h2 id="✅-一、使用-Let’s-Encrypt-配置-HTTPS（自动续签）"><a href="#✅-一、使用-Let’s-Encrypt-配置-HTTPS（自动续签）" class="headerlink" title="✅ 一、使用 Let’s Encrypt 配置 HTTPS（自动续签）"></a>✅ 一、使用 Let’s Encrypt 配置 HTTPS（自动续签）</h2><p>我们将使用工具 <a target="_blank" rel="noopener" href="https://certbot.eff.org/"><code>certbot</code></a> 自动申请证书并配置 Nginx。</p>
+<h2 id="🛠️-步骤-1：安装-Certbot-工具"><a href="#🛠️-步骤-1：安装-Certbot-工具" class="headerlink" title="🛠️ 步骤 1：安装 Certbot 工具"></a>🛠️ 步骤 1：安装 Certbot 工具</h2><p>在你的阿里云服务器上运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt update<br>apt install certbot python3-certbot-nginx -y<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🌐-步骤-2：确保域名已经解析成功"><a href="#🌐-步骤-2：确保域名已经解析成功" class="headerlink" title="🌐 步骤 2：确保域名已经解析成功"></a>🌐 步骤 2：确保域名已经解析成功</h2><p>你已经把 <code>vgtmy.com</code> 和 <code>www.vgtmy.com</code> 指向了你的服务器 <code>47.111.124.118</code>，请确认它们已经能通过浏览器访问。</p>
+<p>确认成功后继续。</p>
+<hr>
+<h2 id="🔐-步骤-3：使用-Certbot-自动申请证书并配置-Nginx"><a href="#🔐-步骤-3：使用-Certbot-自动申请证书并配置-Nginx" class="headerlink" title="🔐 步骤 3：使用 Certbot 自动申请证书并配置 Nginx"></a>🔐 步骤 3：使用 Certbot 自动申请证书并配置 Nginx</h2><p>在服务器上执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">certbot --nginx<br></code></pre></td></tr></table></figure>
+
+<p>然后它会一步步引导你：</p>
+<ul>
+<li>选择你要申请证书的域名（输入对应编号）</li>
+<li>是否重定向 HTTP 到 HTTPS？选择 <strong>2（自动重定向）</strong></li>
+</ul>
+<p>如果你看到这类提示：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">Congratulations! Your certificate <span class="hljs-keyword">and </span>chain have <span class="hljs-keyword">been </span>saved <span class="hljs-built_in">at</span>...<br></code></pre></td></tr></table></figure>
+
+<p>说明证书申请成功并自动配置到了 Nginx。</p>
+<hr>
+<h2 id="🔄-步骤-4：自动续期任务确认"><a href="#🔄-步骤-4：自动续期任务确认" class="headerlink" title="🔄 步骤 4：自动续期任务确认"></a>🔄 步骤 4：自动续期任务确认</h2><p>Certbot 默认会自动添加续期任务（通过 <code>cron</code> 或 <code>systemd</code> 定时执行），你可以手动测试一次是否成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">certbot renew --dry-run<br></code></pre></td></tr></table></figure>
+
+<p>输出没有报错就是 OK 的，证书将在每 60 天自动更新一次。</p>
+<hr>
+<h2 id="✅-最终效果验证"><a href="#✅-最终效果验证" class="headerlink" title="✅ 最终效果验证"></a>✅ 最终效果验证</h2><p>现在打开你的域名：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">https:</span><span class="hljs-comment">//vgtmy.com</span><br></code></pre></td></tr></table></figure>
+
+<p>你应该可以看到：</p>
+<ul>
+<li>页面正常加载</li>
+<li>地址栏出现 🔒 安全锁图标</li>
+<li>支持 HTTPS，自动跳转 HTTP → HTTPS</li>
+</ul>
+<hr>
+<h1 id="GitHub-Actions-自动部署"><a href="#GitHub-Actions-自动部署" class="headerlink" title="GitHub Actions 自动部署"></a>GitHub Actions 自动部署</h1><p>要实现 <strong>Hexo 博客通过 GitHub 自动部署（CI&#x2F;CD）到你的阿里云服务器</strong>，我们可以通过 GitHub Actions 实现一个完整的自动部署流程：</p>
+<blockquote>
+<p>🧠 目标效果是：你只要把博客内容推送到 GitHub，GitHub Actions 就自动构建并将生成的博客上传到你的阿里云服务器，自动上线！</p>
+</blockquote>
+<hr>
+<h2 id="🧱-一、准备条件"><a href="#🧱-一、准备条件" class="headerlink" title="🧱 一、准备条件"></a>🧱 一、准备条件</h2><h3 id="✅-你需要有："><a href="#✅-你需要有：" class="headerlink" title="✅ 你需要有："></a>✅ 你需要有：</h3><ol>
+<li>Hexo 博客项目已托管到 GitHub，例如 <code>https://github.com/yourname/hexo-blog</code></li>
+<li>阿里云服务器的 SSH 登录信息（IP、用户名、密码或密钥）</li>
+<li>确保服务器已部署好 Nginx 并指向 <code>/var/www/html</code></li>
+</ol>
+<hr>
+<h2 id="🛠️-二、在-GitHub-上配置-SSH-密钥（推荐用密钥方式）"><a href="#🛠️-二、在-GitHub-上配置-SSH-密钥（推荐用密钥方式）" class="headerlink" title="🛠️ 二、在 GitHub 上配置 SSH 密钥（推荐用密钥方式）"></a>🛠️ 二、在 GitHub 上配置 SSH 密钥（推荐用密钥方式）</h2><h3 id="1-在你本地生成-SSH-密钥（如果还没有）"><a href="#1-在你本地生成-SSH-密钥（如果还没有）" class="headerlink" title="1. 在你本地生成 SSH 密钥（如果还没有）"></a>1. 在你本地生成 SSH 密钥（如果还没有）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -b 4096 -C <span class="hljs-string">&quot;deploy@hexo&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>一路回车，默认保存在 <code>~/.ssh/id_rsa</code> 和 <code>~/.ssh/id_rsa.pub</code></p>
+<h3 id="2-把公钥复制到你的服务器"><a href="#2-把公钥复制到你的服务器" class="headerlink" title="2. 把公钥复制到你的服务器"></a>2. 把公钥复制到你的服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-copy-id -i ~/.ssh/id_rsa.pub root@47.111.124.118<br></code></pre></td></tr></table></figure>
+
+<p>现在你应该可以免密登录服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh root@47.111.124.118<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-把私钥添加到-GitHub-仓库的-Secrets"><a href="#3-把私钥添加到-GitHub-仓库的-Secrets" class="headerlink" title="3. 把私钥添加到 GitHub 仓库的 Secrets"></a>3. 把私钥添加到 GitHub 仓库的 Secrets</h3><ol>
+<li>打开你的 GitHub 仓库页面</li>
+<li>点击【Settings】&gt;【Secrets and variables】&gt;【Actions】</li>
+<li>新增两个 Secrets：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>SERVER_SSH_KEY</code></td>
+<td>你本地生成的私钥内容（<code>~/.ssh/id_rsa</code> 的内容）</td>
+</tr>
+<tr>
+<td><code>SERVER_HOST</code></td>
+<td><code>47.111.124.118</code></td>
+</tr>
+<tr>
+<td><code>SERVER_USERNAME</code></td>
+<td><code>root</code>（或你设置的用户）</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="📁-三、添加-GitHub-Actions-工作流配置"><a href="#📁-三、添加-GitHub-Actions-工作流配置" class="headerlink" title="📁 三、添加 GitHub Actions 工作流配置"></a>📁 三、添加 GitHub Actions 工作流配置</h2><p>在你的 Hexo 项目根目录新建文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p .github/workflows<br>nano .github/workflows/deploy.yml<br></code></pre></td></tr></table></figure>
+
+<p>填入以下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Hexo</span> <span class="hljs-string">Deploy</span> <span class="hljs-string">to</span> <span class="hljs-string">Aliyun</span><br><br><span class="hljs-attr">on:</span><br>  <span class="hljs-attr">push:</span><br>    <span class="hljs-attr">branches:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">main</span>   <span class="hljs-comment"># 根据你的默认分支调整，如是 master 就改成 master</span><br><br><span class="hljs-attr">jobs:</span><br>  <span class="hljs-attr">build-and-deploy:</span><br>    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span><br><br>    <span class="hljs-attr">steps:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span> <span class="hljs-string">repository</span><br>      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Node.js</span><br>      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v3</span><br>      <span class="hljs-attr">with:</span><br>        <span class="hljs-attr">node-version:</span> <span class="hljs-string">&#x27;18&#x27;</span><br><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">dependencies</span><br>      <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">        npm install -g hexo-cli</span><br><span class="hljs-string">        npm install</span><br><span class="hljs-string"></span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Generate</span> <span class="hljs-string">static</span> <span class="hljs-string">files</span><br>      <span class="hljs-attr">run:</span> <span class="hljs-string">hexo</span> <span class="hljs-string">generate</span><br><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span> <span class="hljs-string">to</span> <span class="hljs-string">server</span> <span class="hljs-string">via</span> <span class="hljs-string">SSH</span><br>      <span class="hljs-attr">uses:</span> <span class="hljs-string">appleboy/scp-action@master</span><br>      <span class="hljs-attr">with:</span><br>        <span class="hljs-attr">host:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.SERVER_HOST</span> <span class="hljs-string">&#125;&#125;</span><br>        <span class="hljs-attr">username:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.SERVER_USERNAME</span> <span class="hljs-string">&#125;&#125;</span><br>        <span class="hljs-attr">key:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.SERVER_SSH_KEY</span> <span class="hljs-string">&#125;&#125;</span><br>        <span class="hljs-attr">source:</span> <span class="hljs-string">&quot;public/*&quot;</span><br>        <span class="hljs-attr">target:</span> <span class="hljs-string">&quot;/var/www/html/&quot;</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="✅-四、测试部署流程"><a href="#✅-四、测试部署流程" class="headerlink" title="✅ 四、测试部署流程"></a>✅ 四、测试部署流程</h2><ol>
+<li>将更改推送到 GitHub：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git add .<br>git commit -m <span class="hljs-string">&quot;Add GitHub Actions deploy&quot;</span><br>git push<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>打开 GitHub 仓库，进入【Actions】页面，查看 CI 是否成功执行</li>
+<li>等待构建 + 部署成功后，访问你的博客：</li>
+</ol>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">https:</span><span class="hljs-comment">//vgtmy.com</span><br></code></pre></td></tr></table></figure>
+
+<p>博客应已自动更新！</p>
+<hr>
+<h2 id="🔁-五、未来如何部署？"><a href="#🔁-五、未来如何部署？" class="headerlink" title="🔁 五、未来如何部署？"></a>🔁 五、未来如何部署？</h2><p>你只需在本地写好文章、提交并推送到 GitHub：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new post <span class="hljs-string">&quot;xxx&quot;</span><br><span class="hljs-comment"># 编辑文章...</span><br>git add .<br>git commit -m <span class="hljs-string">&quot;update post&quot;</span><br>git push<br></code></pre></td></tr></table></figure>
+
+<p><strong>博客就会自动构建并部署上线</strong>！</p>
+<hr>
+<h2 id="📦-六、可选优化（推荐）"><a href="#📦-六、可选优化（推荐）" class="headerlink" title="📦 六、可选优化（推荐）"></a>📦 六、可选优化（推荐）</h2><ul>
+<li>支持多环境构建（如测试&#x2F;正式）</li>
+<li>压缩图片、清理缓存等自动优化</li>
+<li>添加构建状态徽章</li>
+<li>配合 Cloudflare 的缓存刷新自动执行</li>
+</ul>
+<hr>
+<h1 id="优化构建与部署流程"><a href="#优化构建与部署流程" class="headerlink" title="优化构建与部署流程"></a>优化构建与部署流程</h1><p>很好！我们接下来来进行 <strong>优化构建与部署流程</strong>，让你的 Hexo 博客部署更智能、高效。主要包括以下几个增强：</p>
+<hr>
+<h2 id="✅-一、自动压缩优化构建（图片压缩-清理）"><a href="#✅-一、自动压缩优化构建（图片压缩-清理）" class="headerlink" title="✅ 一、自动压缩优化构建（图片压缩 + 清理）"></a>✅ 一、自动压缩优化构建（图片压缩 + 清理）</h2><p>我们可以在 GitHub Actions 中加入构建优化步骤，让生成的静态文件更轻量、更快。</p>
+<h3 id="1-安装优化插件（本地先装一次）"><a href="#1-安装优化插件（本地先装一次）" class="headerlink" title="1. 安装优化插件（本地先装一次）"></a>1. 安装优化插件（本地先装一次）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-neat --save<br></code></pre></td></tr></table></figure>
+
+<p>然后在 Hexo 配置文件 <code>_config.yml</code> 中添加：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">neat_html:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">exclude:</span><br><span class="hljs-attr">neat_css:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">exclude:</span><br><span class="hljs-attr">neat_js:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">mangle:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">output:</span><br>    <span class="hljs-attr">beautify:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这样会自动压缩 HTML&#x2F;CSS&#x2F;JS，大幅减少页面体积。</p>
+</blockquote>
+<hr>
+<h2 id="✅-二、自动刷新-Cloudflare-CDN-缓存（可选）"><a href="#✅-二、自动刷新-Cloudflare-CDN-缓存（可选）" class="headerlink" title="✅ 二、自动刷新 Cloudflare CDN 缓存（可选）"></a>✅ 二、自动刷新 Cloudflare CDN 缓存（可选）</h2><p>如果你启用了 Cloudflare CDN，加速效果会非常好。但部署更新后可能访问的还是缓存的旧页面，因此我们可以通过 GitHub Actions 自动刷新缓存！</p>
+<h3 id="1-获取-Cloudflare-API-Token"><a href="#1-获取-Cloudflare-API-Token" class="headerlink" title="1. 获取 Cloudflare API Token"></a>1. 获取 Cloudflare API Token</h3><ul>
+<li><p>登录 Cloudflare 控制台</p>
+</li>
+<li><p>进入个人设置 → API Tokens → 创建 Token</p>
+</li>
+<li><p>模板选择 <strong>“Purge Everything”</strong></p>
+</li>
+<li><p>设置权限：</p>
+<ul>
+<li>Zone.Zone:Read</li>
+<li>Zone.Cache Purge:Edit</li>
+</ul>
+</li>
+<li><p>限定你当前域名 <code>vgtmy.com</code></p>
+</li>
+</ul>
+<p>生成后保存你的 API Token。</p>
+<hr>
+<h3 id="2-添加-Secrets-到-GitHub-仓库"><a href="#2-添加-Secrets-到-GitHub-仓库" class="headerlink" title="2. 添加 Secrets 到 GitHub 仓库"></a>2. 添加 Secrets 到 GitHub 仓库</h3><p>前往 GitHub 仓库设置：</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CF_ZONE_ID</code></td>
+<td>你的 Cloudflare 区域 ID</td>
+</tr>
+<tr>
+<td><code>CF_API_TOKEN</code></td>
+<td>上面生成的 API Token</td>
+</tr>
+</tbody></table>
+<p>你可以在 Cloudflare 控制台中找到 Zone ID（在域名首页信息栏里）</p>
+<hr>
+<h3 id="3-修改-deploy-yml-添加刷新-CDN-步骤"><a href="#3-修改-deploy-yml-添加刷新-CDN-步骤" class="headerlink" title="3. 修改 deploy.yml 添加刷新 CDN 步骤"></a>3. 修改 <code>deploy.yml</code> 添加刷新 CDN 步骤</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Purge</span> <span class="hljs-string">Cloudflare</span> <span class="hljs-string">Cache</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    curl -X POST &quot;https://api.cloudflare.com/client/v4/zones/$&#123;&#123; secrets.CF_ZONE_ID &#125;&#125;/purge_cache&quot; \</span><br><span class="hljs-string">    -H &quot;Authorization: Bearer $&#123;&#123; secrets.CF_API_TOKEN &#125;&#125;&quot; \</span><br><span class="hljs-string">    -H &quot;Content-Type: application/json&quot; \</span><br><span class="hljs-string">    --data &#x27;&#123;&quot;purge_everything&quot;:true&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>添加在部署成功之后即可。</p>
+</blockquote>
+<hr>
+<h2 id="✅-三、完整部署工作流模板（最终版）"><a href="#✅-三、完整部署工作流模板（最终版）" class="headerlink" title="✅ 三、完整部署工作流模板（最终版）"></a>✅ 三、完整部署工作流模板（最终版）</h2><p>这是一个<strong>完整 CI&#x2F;CD 工作流文件</strong>，具备构建优化、部署、刷新 Cloudflare 缓存的功能：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Hexo</span> <span class="hljs-string">Deploy</span><br><br><span class="hljs-attr">on:</span><br>  <span class="hljs-attr">push:</span><br>    <span class="hljs-attr">branches:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">main</span><br><br><span class="hljs-attr">jobs:</span><br>  <span class="hljs-attr">build-and-deploy:</span><br>    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span><br><br>    <span class="hljs-attr">steps:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span> <span class="hljs-string">repo</span><br>      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">Node.js</span><br>      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v3</span><br>      <span class="hljs-attr">with:</span><br>        <span class="hljs-attr">node-version:</span> <span class="hljs-string">&#x27;18&#x27;</span><br><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">dependencies</span><br>      <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">        npm install -g hexo-cli</span><br><span class="hljs-string">        npm install</span><br><span class="hljs-string"></span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Generate</span> <span class="hljs-string">optimized</span> <span class="hljs-string">static</span> <span class="hljs-string">files</span><br>      <span class="hljs-attr">run:</span> <span class="hljs-string">hexo</span> <span class="hljs-string">clean</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">hexo</span> <span class="hljs-string">generate</span><br><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span> <span class="hljs-string">to</span> <span class="hljs-string">server</span> <span class="hljs-string">via</span> <span class="hljs-string">SSH</span><br>      <span class="hljs-attr">uses:</span> <span class="hljs-string">appleboy/scp-action@master</span><br>      <span class="hljs-attr">with:</span><br>        <span class="hljs-attr">host:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.SERVER_HOST</span> <span class="hljs-string">&#125;&#125;</span><br>        <span class="hljs-attr">username:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.SERVER_USERNAME</span> <span class="hljs-string">&#125;&#125;</span><br>        <span class="hljs-attr">key:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.SERVER_SSH_KEY</span> <span class="hljs-string">&#125;&#125;</span><br>        <span class="hljs-attr">source:</span> <span class="hljs-string">&quot;public/*&quot;</span><br>        <span class="hljs-attr">target:</span> <span class="hljs-string">&quot;/var/www/html/&quot;</span><br><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Purge</span> <span class="hljs-string">Cloudflare</span> <span class="hljs-string">Cache</span><br>      <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">        curl -X POST &quot;https://api.cloudflare.com/client/v4/zones/$&#123;&#123; secrets.CF_ZONE_ID &#125;&#125;/purge_cache&quot; \</span><br><span class="hljs-string">        -H &quot;Authorization: Bearer $&#123;&#123; secrets.CF_API_TOKEN &#125;&#125;&quot; \</span><br><span class="hljs-string">        -H &quot;Content-Type: application/json&quot; \</span><br><span class="hljs-string">        --data &#x27;&#123;&quot;purge_everything&quot;:true&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔄-四、现在你拥有的是："><a href="#🔄-四、现在你拥有的是：" class="headerlink" title="🔄 四、现在你拥有的是："></a>🔄 四、现在你拥有的是：</h2><ul>
+<li>💻 一套完整的 Hexo 博客源码在 GitHub 上管理</li>
+<li>⚙️ 自动构建压缩优化后的静态页面</li>
+<li>🚀 自动部署到阿里云服务器</li>
+<li>☁️ 自动刷新 Cloudflare CDN 缓存</li>
+<li>🔐 支持 HTTPS + 自动续签</li>
+</ul>
+<hr>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/" class="category-chain-item">学习心得</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/hexo/" class="print-no-link">#hexo</a>
+      
+        <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" class="print-no-link">#阿里云</a>
+      
+        <a href="/tags/GitHub/" class="print-no-link">#GitHub</a>
+      
+        <a href="/tags/%E5%8D%9A%E5%AE%A2/" class="print-no-link">#博客</a>
+      
+        <a href="/tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" class="print-no-link">#自动部署</a>
+      
+        <a href="/tags/CI-CD/" class="print-no-link">#CI/CD</a>
+      
+        <a href="/tags/Https/" class="print-no-link">#Https</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>博客部署到阿里云+GitHub自动部署全流程指南.md</div>
+      <div>https://vgtmy.github.io/2025/05/26/博客部署到阿里云-GitHub自动部署全流程指南-md/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>二郎神表弟</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年5月26日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年5月26日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/05/25/%E6%90%AD%E5%BB%BAGit%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/" title="搭建Git代码仓库：代码版本控制与托管指南">
+                        <span class="hidden-mobile">搭建Git代码仓库：代码版本控制与托管指南</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"mQO3a0s27rXVUDdKliTz6ywM-gzGzoHsz","appKey":"qMsSmB72ex2HFqtr0c1w4Igc","path":"window.location.pathname","placeholder":"请留下您的评论~","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>二郎神表弟2025</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>基于Fluid主题</span></a>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
