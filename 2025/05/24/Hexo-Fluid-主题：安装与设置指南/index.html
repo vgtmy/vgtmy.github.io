@@ -1,0 +1,843 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="二郎神表弟">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Hexo Fluid 主题：安装与设置指南Fluid 是基于 Hexo 的一款 Material Design 风格的主题，由 Fluid-dev 开发与维护。本指南将基于您提供的资料，介绍如何安装和设置 Hexo Fluid 主题。 开始使用：安装主题在开始之前，您需要先搭建好 Hexo 博客。如果您还没有 Hexo 博客，请按照 Hexo 官方文档进行安装和建站。 安装 Fluid 主题有两种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo Fluid 主题：安装与设置指南">
+<meta property="og:url" content="https://vgtmy.github.io/2025/05/24/Hexo-Fluid-%E4%B8%BB%E9%A2%98%EF%BC%9A%E5%AE%89%E8%A3%85%E4%B8%8E%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="光阴的故事">
+<meta property="og:description" content="Hexo Fluid 主题：安装与设置指南Fluid 是基于 Hexo 的一款 Material Design 风格的主题，由 Fluid-dev 开发与维护。本指南将基于您提供的资料，介绍如何安装和设置 Hexo Fluid 主题。 开始使用：安装主题在开始之前，您需要先搭建好 Hexo 博客。如果您还没有 Hexo 博客，请按照 Hexo 官方文档进行安装和建站。 安装 Fluid 主题有两种">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://vgtmy.github.io/img/fluid_logo.jpg">
+<meta property="article:published_time" content="2025-05-24T01:25:00.000Z">
+<meta property="article:modified_time" content="2025-05-24T14:01:01.197Z">
+<meta property="article:author" content="二郎神表弟">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="主题">
+<meta property="article:tag" content="fluid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vgtmy.github.io/img/fluid_logo.jpg">
+  
+  
+  
+  <title>Hexo Fluid 主题：安装与设置指南 - 光阴的故事</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"vgtmy.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":90,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"88KjzOxOR2oBRVtIgnppDmWG-gzGzoHsz","app_key":"4LSiCze99E6WNi3YBrbrToct","server_url":"https://88kjzoxo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-05-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>光阴的故事</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://news.erlangsh.us.kg" target="_self">
+                <i class="iconfont icon-news-fill"></i>
+                <span>今日新闻</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Hexo Fluid 主题：安装与设置指南"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        二郎神表弟
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-24 09:25" pubdate>
+          2025年5月24日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Hexo Fluid 主题：安装与设置指南</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年5月24日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Hexo-Fluid-主题：安装与设置指南"><a href="#Hexo-Fluid-主题：安装与设置指南" class="headerlink" title="Hexo Fluid 主题：安装与设置指南"></a>Hexo Fluid 主题：安装与设置指南</h2><p>Fluid 是基于 Hexo 的一款 Material Design 风格的主题，由 Fluid-dev 开发与维护。本指南将基于您提供的资料，介绍如何安装和设置 Hexo Fluid 主题。</p>
+<h2 id="开始使用：安装主题"><a href="#开始使用：安装主题" class="headerlink" title="开始使用：安装主题"></a>开始使用：安装主题</h2><p>在开始之前，您需要先搭建好 Hexo 博客。如果您还没有 Hexo 博客，请按照 Hexo 官方文档进行安装和建站。</p>
+<p>安装 Fluid 主题有两种主要方式：</p>
+<h3 id="方式一：通过-Npm-安装-推荐，Hexo-5-0-0-及以上版本"><a href="#方式一：通过-Npm-安装-推荐，Hexo-5-0-0-及以上版本" class="headerlink" title="方式一：通过 Npm 安装 (推荐，Hexo 5.0.0 及以上版本)"></a>方式一：通过 Npm 安装 (推荐，Hexo 5.0.0 及以上版本)</h3><p>进入您的 Hexo 博客目录，执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install --save hexo-theme-fluid<br></code></pre></td></tr></table></figure>
+
+<p>然后在博客目录下创建 <code>_config.fluid.yml</code> 文件，并将主题目录下的 <code>_config.yml</code> 内容复制到新创建的 <code>_config.fluid.yml</code> 文件中。今后，所有主题配置的修改都建议在此文件中进行，以避免主题更新时丢失自定义配置。</p>
+<h3 id="方式二：下载-Release-压缩包安装"><a href="#方式二：下载-Release-压缩包安装" class="headerlink" title="方式二：下载 Release 压缩包安装"></a>方式二：下载 Release 压缩包安装</h3><p>下载 Fluid 主题的最新 Release 版本。解压下载的压缩包到您 Hexo 博客目录下的 <code>themes</code> 文件夹。将解压出的文件夹重命名为 <code>fluid</code>。</p>
+<p><strong>注意：</strong> 如果您选择此方式安装主题，建议学习使用 <strong>覆盖配置</strong> 功能，避免在更新主题时丢失自定义配置。对于 Hexo 5.0.0 版本及以上的用户，可以在博客目录下创建 <code>_config.fluid.yml</code> 文件；对于 Hexo 低于 5.0.0 但不低于 3.0.0 的用户，需要在博客目录下的 <code>source/_data</code> 目录（如不存在则创建）中创建 <code>fluid_config.yml</code> 文件。将主题的 <code>_config.yml</code> 内容复制到这些文件中进行修改。</p>
+<h3 id="指定主题"><a href="#指定主题" class="headerlink" title="指定主题"></a>指定主题</h3><p>修改 Hexo 博客目录下的 <code>_config.yml</code> 文件：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">theme:</span> <span class="hljs-string">fluid</span> <span class="hljs-comment"># 指定主题</span><br><span class="hljs-attr">language:</span> <span class="hljs-string">zh-CN</span> <span class="hljs-comment"># 指定语言，会影响主题显示的语言，按需修改</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="创建「关于页」"><a href="#创建「关于页」" class="headerlink" title="创建「关于页」"></a>创建「关于页」</h3><p>首次使用主题时，需要手动创建「关于页」。在博客目录下执行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page about<br></code></pre></td></tr></table></figure>
+
+<p>创建成功后，修改 <code>/source/about/index.md</code> 文件，添加 <code>layout: about</code> 属性。修改后的文件示例如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: 标题<br><span class="hljs-section">layout: about</span><br><span class="hljs-section">---</span><br>这里写关于页的正文，支持 Markdown , HTML<br></code></pre></td></tr></table></figure>
+
+<p><strong>重要提示：</strong> <code>layout: about</code> <strong>必须存在，并且不能修改成其他值</strong>，否则不会显示头像等样式。</p>
+<h2 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h2><p>主题配置可以通过修改 <code>theme/fluid/_config.yml</code> 或站点目录下的 <strong>主题配置文件</strong> (<code>_config.fluid.yml</code> 或 <code>source/_data/fluid_config.yml</code>) 来实现。推荐使用后者的覆盖配置方式。本指南提到的“站点配置”指 Hexo 博客目录下的 <code>_config.yml</code>，“主题配置”指 <code>theme/fluid/_config.yml</code> 或 <code>_config.fluid.yml</code>。</p>
+<p>几乎每个配置在主题配置文件中都有注释，可配合指南共同参考使用。</p>
+<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><ul>
+<li><strong>覆盖配置</strong>: 如前所述，通过在站点根目录下创建 <code>_config.fluid.yml</code> (Hexo 5.0.0+) 或在 <code>source/_data/</code> 下创建 <code>fluid_config.yml</code> (Hexo &lt; 5.0.0)，可以将主题配置放在主题文件夹之外，以便于更新。<strong>只要存在于这些覆盖文件中的配置，优先级都高于主题自带的 <code>_config.yml</code></strong>。</li>
+<li><strong>静态资源</strong>: 可以通过主题配置中的 <code>static_prefix</code> 修改静态资源文件的 URL。</li>
+<li><strong>本地搜索</strong>: 已集成 <code>hexo-generator-search</code> 插件。默认生成并使用 <code>local-search.xml</code>。</li>
+<li><strong>页面顶部大图 (Banner)</strong>: 主题配置中，每个页面都有 <code>banner_img</code> 属性。可以使用本地图片相对路径（相对于 <code>source</code> 目录，优先使用博客目录下的 <code>source</code>）或外站链接。建议图片大小在 1MB 以内。可以使用 <code>banner_img_height</code> (0-100) 控制高度，<code>banner_mask_alpha</code> (0-1.0) 控制蒙版透明度。<ul>
+<li>每篇文章可以单独设置 Banner，详见文章页设置。</li>
+<li>主题不支持固定背景 (fixed)。</li>
+</ul>
+</li>
+<li><strong>博客标题</strong>: 页面左上角的标题默认使用 <strong>站点配置</strong> 中的 <code>title</code>。如需单独设置，可在 <strong>主题配置</strong> 中设置 <code>navbar.blog_title</code>。</li>
+<li><strong>导航菜单</strong>: 在 <strong>主题配置</strong> 的 <code>navbar.menu</code> 中设置。每个菜单项包含 <code>key</code> (用于语言关联，或直接显示值)、<code>link</code> (跳转链接)、<code>icon</code> (图标 CSS Class，可省略) 和 <code>name</code> (强制显示名称，可省略)。支持二级菜单。</li>
+<li><strong>懒加载</strong>: 默认开启。开启后，图片或评论插件在滚动到可见范围时才会加载，可提高网页打开速度。可在 <strong>主题配置</strong> 的 <code>lazyload</code> 项中设置是否启用 (<code>enable</code>)、加载占位图 (<code>loading_img</code>)、是否仅在文章页生效 (<code>onlypost</code>) 和触发加载的偏移倍数 (<code>offset_factor</code>)。</li>
+<li><strong>全局字体</strong>: 可在 <strong>主题配置</strong> 的 <code>font</code> 项中设置全局字号 (<code>font_size</code>)、字体族 (<code>font_family</code>) 和代码字号 (<code>code_font_size</code>)。建议使用系统自带字体，并至少添加一个通用字体族名。</li>
+<li><strong>网页统计</strong>: 支持多种统计服务，如百度统计、Google 统计、腾讯统计、51.la、友盟&#x2F;cnzz、LeanCloud。在 <strong>主题配置</strong> 的 <code>web_analytics</code> 项中开启并填入相应的 Key 或 ID。</li>
+<li><strong>PV 与 UV 统计</strong>: 可在页脚展示。支持 LeanCloud 和 不蒜子。在 <strong>主题配置</strong> 的 <code>footer.statistics</code> 中设置是否启用 (<code>enable</code>)、数据源 (<code>source</code>) 和显示文本格式 (<code>pv_format</code>, <code>uv_format</code>)。<ul>
+<li>不蒜子无需账号，但有时响应慢。LeanCloud 需要申请账号并填入 API 参数。</li>
+</ul>
+</li>
+<li><strong>语言配置</strong>: 在 <strong>站点配置</strong> 的 <code>language</code> 项中设置。值需要对应主题 <code>languages/</code> 目录内的文件名。也可以通过在 <code>source/_data/languages</code> 目录下创建相应的 YAML 文件来自定义或新增语言配置。</li>
+<li><strong>强制全局 HTTPS</strong>: 在 <strong>主题配置</strong> 中开启 <code>force_https: true</code> 可将所有请求强制升级为 HTTPS。</li>
+<li><strong>二级站点路径</strong>: 如果博客部署在二级路径（如 <code>xxx.com/blog/</code>），需要修改 <strong>站点配置</strong> 中的 <code>url</code> 和 <code>root</code>。</li>
+<li><strong>自定义 JS &#x2F; CSS &#x2F; HTML</strong>: 可在 <strong>主题配置</strong> 的 <code>custom_js</code>, <code>custom_css</code>, <code>custom_head</code>, <code>custom_html</code> 项中引入自定义代码或文件。<code>custom_js</code> 和 <code>custom_css</code> 支持指定多个路径。</li>
+<li><strong>暗色模式</strong>: 在 <strong>主题配置</strong> 的 <code>dark_mode</code> 中开启 <code>enable: true</code>。<code>default</code> 参数可设置默认模式 (auto&#x2F;light&#x2F;dark)。</li>
+<li><strong>OpenGraph</strong>: 默认开启。可在 <strong>主题配置</strong> 的 <code>open_graph</code> 项中完善相关信息。也可在文章 front-matter 中设置 <code>og_img</code> 指定单页面的 OpenGraph 图片。</li>
+</ul>
+<h3 id="首页设置"><a href="#首页设置" class="headerlink" title="首页设置"></a>首页设置</h3><ul>
+<li><strong>Slogan (打字机)</strong>: 首页大图中的标题文字。可在 <strong>主题配置</strong> 的 <code>index.slogan</code> 中开启并设置文本。支持通过 API 获取内容。默认开启打字机动效，可在 <code>fun_features.typing</code> 中设置。</li>
+<li><strong>文章摘要</strong>: 可在 <strong>主题配置</strong> 的 <code>index.auto_excerpt</code> 中开启&#x2F;关闭自动摘要 (默认开启)。手动指定摘要可通过在正文中使用 <code>&lt;!-- more --&gt;</code> 或在 front-matter 中设置 <code>excerpt</code> 字段。<strong>优先级：手动摘要 &gt; 自动摘要</strong>。</li>
+<li><strong>文章跳转方式</strong>: 可在 <strong>主题配置</strong> 的 <code>index.post_url_target</code> 设置点击文章链接时的跳转方式 (<code>_blank</code> 新标签页, <code>_self</code> 当前标签页)。</li>
+<li><strong>文章信息</strong>: 可在 <strong>主题配置</strong> 的 <code>index.post_meta</code> 控制首页文章列表中是否显示发布时间、分类、标签。</li>
+<li><strong>隐藏文章</strong>: 在文章 front-matter 中设置 <code>hide: true</code> 可使文章不在首页及归档分类页中展示。隐藏后仍可通过链接访问。</li>
+<li><strong>归档文章</strong>: 在文章 front-matter 中设置 <code>archive: true</code> 可使文章在首页隐藏，但仍在归档分类页中展示。</li>
+<li><strong>文章排序 (置顶)</strong>: 如果安装了 <code>hexo-generator-index</code> &gt;&#x3D; 2.0.0 版本，可在文章 front-matter 中设置 <code>sticky</code> 属性。<code>sticky</code> 数值越大，文章越靠前。可通过 <strong>主题配置</strong> 的 <code>index.post_sticky</code> 控制是否显示置顶图标。</li>
+</ul>
+<h3 id="文章页设置"><a href="#文章页设置" class="headerlink" title="文章页设置"></a>文章页设置</h3><ul>
+<li><strong>文章在首页的封面图</strong>: 在文章 front-matter 中设置 <code>index_img</code>。支持本地图片路径 (相对于 <code>source</code> 目录) 或外链。可在 <strong>主题配置</strong> 的 <code>post.default_index_img</code> 设置默认封面图。</li>
+<li><strong>文章页顶部大图</strong>: 默认显示主题配置中的 <code>post.banner_img</code>。可在文章 front-matter 中指定 <code>banner_img</code> 设置单篇文章的顶部大图。</li>
+<li><strong>文章内容图片</strong>: 本地图片存放位置（相对于 <code>source</code> 目录）同上。</li>
+<li><strong>日期&#x2F;字数&#x2F;阅读时长&#x2F;阅读数</strong>: 显示在文章页大标题下方。可在 <strong>主题配置</strong> 的 <code>post.meta</code> 中开启&#x2F;关闭作者 (<code>author</code>)、日期 (<code>date</code>)、字数统计 (<code>wordcount</code>)、阅读时间 (<code>min2read</code>) 和阅读次数 (<code>views</code>)。阅读次数支持 LeanCloud 或 不蒜子。日期格式需遵循 ISO-8601 规范。</li>
+<li><strong>代码块</strong>: 可在 <strong>主题配置</strong> 的 <code>code</code> 中设置是否开启复制按钮 (<code>copy_btn</code>)、行号 (<code>line_number</code>)、代码高亮 (<code>highlight</code>) 及选择高亮库 (<code>lib</code>，支持 highlightjs 和 prismjs)。</li>
+<li><strong>评论</strong>: 在 <strong>主题配置</strong> 的 <code>post.comments</code> 中开启 <code>enable: true</code> 并指定 <code>type</code>。下方需设置对应评论模块的参数。主题支持多种评论插件，如 Valine, Waline, Gitalk, Disqus 等。可在文章或自定义页面 front-matter 中设置 <code>comment: bool</code> 或 <code>comment: &#39;type&#39;</code> 控制评论开关。</li>
+<li><strong>脚注</strong>: 主题内置脚注语法支持。可在 <strong>主题配置</strong> 的 <code>post.footnote</code> 中开启 (<code>enable: true</code>)。支持在文末生成带锚点的脚注。</li>
+<li><strong>Tag 插件</strong>: 主题内置多种 Tag 插件，如便签 (<code>&#123;% note %&#125;</code>), 行内标签 (<code>&#123;% label %&#125;</code>), 折叠块 (<code>&#123;% fold %&#125;</code>), 勾选框 (<code>&#123;% cb %&#125;</code>), 按钮 (<code>&#123;% btn %&#125;</code>) 和组图 (<code>&#123;% gi %&#125;</code>)。</li>
+<li><strong>LaTeX 数学公式</strong>: 手动开启。需在 <strong>主题配置</strong> 的 <code>post.math</code> 中开启 (<code>enable: true</code>)，可设置是否按需加载 (<code>specific</code>) 和选择引擎 (<code>engine</code>，支持 mathjax 或 katex)。同时需要更换 Markdown 渲染器（如 hexo-renderer-pandoc + Pandoc for mathjax, 或 hexo-renderer-markdown-it + @traptitech&#x2F;markdown-it-katex for katex）。完成后需执行 <code>hexo clean</code>。</li>
+<li><strong>Mermaid 流程图</strong>: 手动开启。需在 <strong>主题配置</strong> 的 <code>post.mermaid</code> 中开启 (<code>enable: true</code>)，可设置是否按需加载 (<code>specific</code>) 和配置选项 (<code>options</code>)。支持内置 Tag 或代码块书写。</li>
+</ul>
+<h3 id="其他页面"><a href="#其他页面" class="headerlink" title="其他页面"></a>其他页面</h3><ul>
+<li><strong>归档页&#x2F;分类页&#x2F;标签页</strong>: 具体配置见主题配置文件注释。标签页支持词云展示。</li>
+<li><strong>关于页</strong>: 前面已介绍创建方法。可在 <strong>主题配置</strong> 的 <code>about</code> 项中设置关于信息 (头像 <code>avatar</code>, 姓名 <code>name</code>, 简介 <code>intro</code>) 和社交图标 (<code>icons</code>)。社交图标可设置链接或二维码。</li>
+<li><strong>友情链接页</strong>: 默认关闭。需先在 <code>navbar.menu</code> 中开启 <code>links</code> 菜单项，然后在 <code>links</code> 配置项中设置友情链接列表 (<code>items</code>)。支持自定义区域和评论。</li>
+<li><strong>自定义页面</strong>: 可通过 <code>hexo new page example</code> 创建。可在 front-matter 或 <strong>主题配置</strong> 的 <code>page</code> 项中进行配置。自定义页面评论通过 front-matter 控制。如果需要与文章页功能相似的自定义页面，建议使用 <code>_posts</code> 并配合隐藏文章功能。</li>
+<li><strong>404 页</strong>: 访问不存在的链接时显示。需要在部署环境上配置 (如 Nginx 的 <code>error_page 404</code>)。GitHub Pages 需绑定顶级域名才生效。主题包含默认 404 页面，也可在 <code>source</code> 目录下放置自定义的 <code>404.html</code>。</li>
+</ul>
+<h2 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h2><p>根据您的安装方式，有不同的更新方法：</p>
+<ul>
+<li><strong>Npm 安装</strong>: 在博客目录下执行 <code>npm update --save hexo-theme-fluid</code>。</li>
+<li><strong>Release 压缩包安装 (未修改代码)</strong>: 将原文件夹重命名备份，重新下载最新 Release 并解压重命名为 <code>fluid</code>。根据更新说明同步修改您的覆盖配置文件 (<code>_config.fluid.yml</code> 或 <code>source/_data/fluid_config.yml</code>)。</li>
+<li><strong>自定义代码或体验其他分支</strong>: 确保 Fluid 目录开启 git 且所有改动已 commit。拉取对应分支的代码（如 dev 分支）：<code>git pull https://github.com/fluid-dev/hexo-theme-fluid.git develop</code>。解决代码冲突。</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li><strong>高级用法</strong>: 主题提供了 Fluid 代码注入功能，相比 Hexo 内置注入器，支持注入 ejs 代码，更细致丰富。可在博客目录 <code>scripts</code> 文件夹下创建 JS 文件，使用 <code>hexo.extend.filter.register(&#39;theme_inject&#39;, ...)</code> 来实现。</li>
+<li><strong>Hexo 插件</strong>: 您提供的资料列出了一些推荐的 Hexo 插件，例如 <code>hexo-all-minifier</code> (压缩文件)、<code>hexo-abbrlink</code> (生成永久链接)、<code>live2d-widget</code> (看板娘) 等。<strong>请注意，所有插件仅作为推荐，不能保证完全与 Fluid 兼容，请仔细阅读插件文档</strong>。</li>
+<li><strong>加快网页加载</strong>: 推荐使用 OSS (对象存储服务) 托管博客静态文件。对于本地图片，建议搭配 <code>hexo-all-minifier</code> 插件进行压缩；对于外部图片，建议使用 tinypng 等工具压缩。</li>
+</ul>
+<p><strong>提示</strong>: 每次无论是 <code>hexo g</code> (生成) 或 <code>hexo s</code> (本地服务)，都最好先使用 <code>hexo clean</code> 清除本地缓存，以避免奇怪的问题。</p>
+<p>希望这篇指南能帮助您更好地安装和设置 Hexo Fluid 主题！</p>
+<pre><code class="hljs">
+</code></pre>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="category-chain-item">学习笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/hexo/" class="print-no-link">#hexo</a>
+      
+        <a href="/tags/%E4%B8%BB%E9%A2%98/" class="print-no-link">#主题</a>
+      
+        <a href="/tags/fluid/" class="print-no-link">#fluid</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Hexo Fluid 主题：安装与设置指南</div>
+      <div>https://vgtmy.github.io/2025/05/24/Hexo-Fluid-主题：安装与设置指南/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>二郎神表弟</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年5月24日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年5月24日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/05/25/OpenHands%E5%BA%94%E7%94%A8%E6%8C%87%E5%8D%97/" title="OpenHands应用指南">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">OpenHands应用指南</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/05/23/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%AA%E4%BA%BA%E5%BA%94%E7%94%A8/" title="人工智能个人应用：开启智能生活新时代">
+                        <span class="hidden-mobile">人工智能个人应用：开启智能生活新时代</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>二郎神表弟2025</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>基于Fluid主题</span></a>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
