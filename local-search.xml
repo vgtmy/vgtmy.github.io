@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>LibreELEC与Kodi指南</title>
+    <link href="/2025/05/30/LibreELEC%E4%B8%8EKodi%E6%8C%87%E5%8D%97/"/>
+    <url>/2025/05/30/LibreELEC%E4%B8%8EKodi%E6%8C%87%E5%8D%97/</url>
+    
+    <content type="html"><![CDATA[<!-- 这里是模板内容 --><hr><p>LibreELEC 是一个开源的 Linux 发行版，内置 Kodi 媒体中心。它由已停止开发的 OpenELEC 项目发展而来，目标是提供一个轻量级、快速启动、资源占用极低的 Kodi 专用系统。LibreELEC 可直接开机进入 Kodi，支持多种芯片平台，包括 PC、树莓派、Amlogic、Rockchip 等，是运行 Kodi 的理想平台，尤其适用于性能较低的设备。</p><span id="more"></span><hr><h1 id="📥-LibreELEC-下载、安装与应用详细教程"><a href="#📥-LibreELEC-下载、安装与应用详细教程" class="headerlink" title="📥 LibreELEC 下载、安装与应用详细教程"></a>📥 LibreELEC 下载、安装与应用详细教程</h1><h2 id="🧩-一、LibreELEC-下载"><a href="#🧩-一、LibreELEC-下载" class="headerlink" title="🧩 一、LibreELEC 下载"></a>🧩 一、LibreELEC 下载</h2><p>要下载 LibreELEC，首先需根据设备平台选择正确版本。</p><h3 id="1-选择设备对应版本"><a href="#1-选择设备对应版本" class="headerlink" title="1. 选择设备对应版本"></a>1. 选择设备对应版本</h3><ul><li><p><strong>PC 平台</strong>  </p><ul><li>推荐：<code>Generic (AMD/Intel)</code>  </li><li>较老设备：<code>Generic Legacy (AMD/Intel/NVIDIA)</code></li></ul></li><li><p><strong>Amlogic 盒子</strong>  </p><ul><li>示例：S905 (GXBB)、S905X&#x2F;S905D (GXL)、S912 (GXM)</li></ul></li><li><p><strong>树莓派</strong>  </p><ul><li>专用版本，按型号区分：树莓派 0&#x2F;1、2&#x2F;3、4</li></ul></li></ul><h3 id="2-下载工具"><a href="#2-下载工具" class="headerlink" title="2. 下载工具"></a>2. 下载工具</h3><ul><li><strong>官方 LibreELEC USB&#x2F;SD 制作工具</strong>（适用于 PC 安装）</li><li><strong>Etcher</strong> 烧写工具（支持 Windows&#x2F;macOS&#x2F;Linux，适用于树莓派）</li></ul><h3 id="3-系统镜像版本参考"><a href="#3-系统镜像版本参考" class="headerlink" title="3. 系统镜像版本参考"></a>3. 系统镜像版本参考</h3><table><thead><tr><th>LibreELEC 版本</th><th>Kodi 版本</th><th>Linux 内核</th></tr></thead><tbody><tr><td>12.0.2</td><td>21.2</td><td>6.6.x</td></tr><tr><td>12.0 &#x2F; 12.0.1</td><td>21.0&#x2F;21.1</td><td>6.6.x</td></tr><tr><td>11.0</td><td>20.3</td><td></td></tr><tr><td>10.0</td><td>19.5</td><td></td></tr><tr><td>9.2</td><td>18.9</td><td></td></tr></tbody></table><hr><h2 id="💾-二、LibreELEC-安装"><a href="#💾-二、LibreELEC-安装" class="headerlink" title="💾 二、LibreELEC 安装"></a>💾 二、LibreELEC 安装</h2><h3 id="1-安装准备"><a href="#1-安装准备" class="headerlink" title="1. 安装准备"></a>1. 安装准备</h3><ul><li>一个 <strong>U 盘</strong>（用于 PC&#x2F;电视盒子）或 <strong>Micro SD 卡</strong>（用于树莓派）</li><li>安装目标设备（如 PC、盒子、树莓派）</li><li>一台下载镜像并烧录的电脑（Windows&#x2F;macOS&#x2F;Linux）</li><li>配件（树莓派）：HDMI、电源、网线&#x2F;无线模块</li></ul><h3 id="2-安装步骤"><a href="#2-安装步骤" class="headerlink" title="2. 安装步骤"></a>2. 安装步骤</h3><h4 id="方式一：使用-LibreELEC-制作工具（适用于-PC-电视盒子）"><a href="#方式一：使用-LibreELEC-制作工具（适用于-PC-电视盒子）" class="headerlink" title="方式一：使用 LibreELEC 制作工具（适用于 PC&#x2F;电视盒子）"></a><strong>方式一：使用 LibreELEC 制作工具（适用于 PC&#x2F;电视盒子）</strong></h4><ol><li>打开 LibreELEC 制作工具。</li><li>选择镜像文件，或根据提示下载适配版本。</li><li>插入 U 盘，选择目标设备（确认无误）。</li><li>点击“写入”，完成后拔出 U 盘。</li><li>将 U 盘插入目标设备，进入 BIOS 设置 USB 启动。</li><li>启动后按提示进行安装，安装完成后拔掉 U 盘。</li><li>重启后进入 LibreELEC。</li></ol><h4 id="方式二：使用-Etcher-烧写（适用于树莓派）"><a href="#方式二：使用-Etcher-烧写（适用于树莓派）" class="headerlink" title="方式二：使用 Etcher 烧写（适用于树莓派）"></a><strong>方式二：使用 Etcher 烧写（适用于树莓派）</strong></h4><ol><li>插入 Micro SD 卡，启动 Etcher。</li><li>选择镜像文件，选择 SD 卡为目标设备。</li><li>点击 <code>Flash!</code> 开始写入，完成后弹出卡。</li><li>插入树莓派，连接电源&#x2F;HDMI 等启动设备。</li><li>初次启动进入设置向导。</li></ol><hr><h2 id="🛠️-三、LibreELEC-首次设置"><a href="#🛠️-三、LibreELEC-首次设置" class="headerlink" title="🛠️ 三、LibreELEC 首次设置"></a>🛠️ 三、LibreELEC 首次设置</h2><p>LibreELEC 首次启动会进入图形化配置向导：</p><ol><li><strong>语言选择</strong>：选择简体中文等首选语言。</li><li><strong>主机名</strong>：修改默认名称（如 <code>LibreELEC</code>）。</li><li><strong>网络连接</strong>：<ul><li>有线：自动连接</li><li>无线：手动输入密码连接</li></ul></li><li><strong>服务配置</strong>：<ul><li><strong>SSH</strong>：高级用途，非必须时建议关闭。</li><li><strong>Samba (SMB)</strong>：用于局域网共享文件，建议开启。</li></ul></li><li>设置完成后可进入 Kodi 主界面。</li></ol><hr><h2 id="🎬-四、LibreELEC-Kodi-应用与设置"><a href="#🎬-四、LibreELEC-Kodi-应用与设置" class="headerlink" title="🎬 四、LibreELEC (Kodi) 应用与设置"></a>🎬 四、LibreELEC (Kodi) 应用与设置</h2><p>LibreELEC 的核心为 Kodi，配置 Kodi 才是系统的重点。</p><h3 id="常用设置技巧"><a href="#常用设置技巧" class="headerlink" title="常用设置技巧"></a>常用设置技巧</h3><ul><li><strong>电影集显示</strong>：<code>设置 → 媒体 → 视频</code> 开启“显示电影集”</li><li><strong>视频卡顿优化</strong>：Kodi 21 支持缓存设置，可调节缓冲区大小</li><li><strong>阿里云盘挂载</strong>：使用 WebDAV 或第三方插件作为视频源</li><li><strong>首选语言&#x2F;字幕&#x2F;音轨</strong>：<ul><li>设置默认语言为中文</li><li>默认开启中文字幕</li><li>默认音轨为国语</li></ul></li><li><strong>启动画面</strong>：可更换或关闭启动图（Kodi 开机画面）</li><li><strong>电影海报墙显示名称</strong>：修改 Kodi 界面设置</li><li><strong>插件推荐</strong>：<ul><li><code>PVR IPTV Simple Client</code>：电视直播</li><li><code>Zimuku</code>：字幕库插件</li><li><code>Emby / Jellyfin / Plex</code>：媒体服务器连接</li><li><code>The Movie Database</code>：视频信息刮削器</li></ul></li></ul><hr><h2 id="🧯-五、LibreELEC-故障排除"><a href="#🧯-五、LibreELEC-故障排除" class="headerlink" title="🧯 五、LibreELEC 故障排除"></a>🧯 五、LibreELEC 故障排除</h2><h3 id="1-无法从-U-盘启动（电视盒子）"><a href="#1-无法从-U-盘启动（电视盒子）" class="headerlink" title="1. 无法从 U 盘启动（电视盒子）"></a>1. 无法从 U 盘启动（电视盒子）</h3><ul><li>某些安卓盒子需刷入特殊固件或使用特定方式启动</li><li>建议查阅对应芯片型号的教程</li></ul><h3 id="2-Samba-网络共享不可用"><a href="#2-Samba-网络共享不可用" class="headerlink" title="2. Samba 网络共享不可用"></a>2. Samba 网络共享不可用</h3><ul><li>启用 LibreELEC 的 <code>Samba</code> 服务</li><li>检查 Windows 防火墙&#x2F;局域网设置</li></ul><h3 id="3-Kodi-刮削器无法连接-themoviedb"><a href="#3-Kodi-刮削器无法连接-themoviedb" class="headerlink" title="3. Kodi 刮削器无法连接 themoviedb"></a>3. Kodi 刮削器无法连接 themoviedb</h3><ul><li>可能与 <code>/storage/.kodi/addons</code> 目录下某些插件有关</li></ul><h3 id="4-HDMI-音频无法输出（树莓派）"><a href="#4-HDMI-音频无法输出（树莓派）" class="headerlink" title="4. HDMI 音频无法输出（树莓派）"></a>4. HDMI 音频无法输出（树莓派）</h3><ul><li>解决方法：<ul><li>在 <code>config.txt</code> 中添加 <code>hdmi_drive=2</code></li><li>确保电视在树莓派启动前已开机并设定 HDMI 输入</li><li>更换 HDMI 线缆，尝试不同的端口（HDMI0&#x2F;HDMI1）</li><li>树莓派 5：断电静置数分钟后重启，再检查音频输出</li></ul></li></ul><hr><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>希望本教程能帮助您顺利下载、安装并使用 LibreELEC。如果您在使用过程中遇到问题，欢迎查阅社区教程或继续探索更多 Kodi 插件扩展功能。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>学习心得</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>LibreELCE</tag>
+      
+      <tag>Kodi</tag>
+      
+      <tag>指南</tag>
+      
+      <tag>教程</tag>
+      
+      <tag>家庭影院</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>博客部署到阿里云+GitHub自动部署全流程指南</title>
     <link href="/2025/05/26/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91-GitHub%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B%E6%8C%87%E5%8D%97/"/>
     <url>/2025/05/26/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91-GitHub%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B%E6%8C%87%E5%8D%97/</url>

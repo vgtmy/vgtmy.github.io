@@ -1,0 +1,923 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="二郎神表弟">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="LibreELEC 是一个开源的 Linux 发行版，内置 Kodi 媒体中心。它由已停止开发的 OpenELEC 项目发展而来，目标是提供一个轻量级、快速启动、资源占用极低的 Kodi 专用系统。LibreELEC 可直接开机进入 Kodi，支持多种芯片平台，包括 PC、树莓派、Amlogic、Rockchip 等，是运行 Kodi 的理想平台，尤其适用于性能较低的设备。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LibreELEC与Kodi指南">
+<meta property="og:url" content="https://vgtmy.github.io/2025/05/30/LibreELEC%E4%B8%8EKodi%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="光阴的故事">
+<meta property="og:description" content="LibreELEC 是一个开源的 Linux 发行版，内置 Kodi 媒体中心。它由已停止开发的 OpenELEC 项目发展而来，目标是提供一个轻量级、快速启动、资源占用极低的 Kodi 专用系统。LibreELEC 可直接开机进入 Kodi，支持多种芯片平台，包括 PC、树莓派、Amlogic、Rockchip 等，是运行 Kodi 的理想平台，尤其适用于性能较低的设备。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://vgtmy.github.io/img/kodi.jpg">
+<meta property="article:published_time" content="2025-05-30T07:09:13.000Z">
+<meta property="article:modified_time" content="2025-05-30T07:38:49.732Z">
+<meta property="article:author" content="二郎神表弟">
+<meta property="article:tag" content="LibreELCE">
+<meta property="article:tag" content="Kodi">
+<meta property="article:tag" content="指南">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="家庭影院">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vgtmy.github.io/img/kodi.jpg">
+  
+  
+  
+  <title>LibreELEC与Kodi指南 - 光阴的故事</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"vgtmy.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":90,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"88KjzOxOR2oBRVtIgnppDmWG-gzGzoHsz","app_key":"4LSiCze99E6WNi3YBrbrToct","server_url":"https://88kjzoxo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-05-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>光阴的故事</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://news.erlangsh.us.kg" target="_self">
+                <i class="iconfont icon-news-fill"></i>
+                <span>今日新闻</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/LibreELEC.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.7)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="LibreELEC与Kodi指南"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        二郎神表弟
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-30 15:09" pubdate>
+          2025年5月30日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">LibreELEC与Kodi指南</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年5月30日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <!-- 这里是模板内容 -->
+<hr>
+<p>LibreELEC 是一个开源的 Linux 发行版，内置 Kodi 媒体中心。它由已停止开发的 OpenELEC 项目发展而来，目标是提供一个轻量级、快速启动、资源占用极低的 Kodi 专用系统。LibreELEC 可直接开机进入 Kodi，支持多种芯片平台，包括 PC、树莓派、Amlogic、Rockchip 等，是运行 Kodi 的理想平台，尤其适用于性能较低的设备。</p>
+<span id="more"></span>
+<hr>
+<h1 id="📥-LibreELEC-下载、安装与应用详细教程"><a href="#📥-LibreELEC-下载、安装与应用详细教程" class="headerlink" title="📥 LibreELEC 下载、安装与应用详细教程"></a>📥 LibreELEC 下载、安装与应用详细教程</h1><h2 id="🧩-一、LibreELEC-下载"><a href="#🧩-一、LibreELEC-下载" class="headerlink" title="🧩 一、LibreELEC 下载"></a>🧩 一、LibreELEC 下载</h2><p>要下载 LibreELEC，首先需根据设备平台选择正确版本。</p>
+<h3 id="1-选择设备对应版本"><a href="#1-选择设备对应版本" class="headerlink" title="1. 选择设备对应版本"></a>1. 选择设备对应版本</h3><ul>
+<li><p><strong>PC 平台</strong>  </p>
+<ul>
+<li>推荐：<code>Generic (AMD/Intel)</code>  </li>
+<li>较老设备：<code>Generic Legacy (AMD/Intel/NVIDIA)</code></li>
+</ul>
+</li>
+<li><p><strong>Amlogic 盒子</strong>  </p>
+<ul>
+<li>示例：S905 (GXBB)、S905X&#x2F;S905D (GXL)、S912 (GXM)</li>
+</ul>
+</li>
+<li><p><strong>树莓派</strong>  </p>
+<ul>
+<li>专用版本，按型号区分：树莓派 0&#x2F;1、2&#x2F;3、4</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-下载工具"><a href="#2-下载工具" class="headerlink" title="2. 下载工具"></a>2. 下载工具</h3><ul>
+<li><strong>官方 LibreELEC USB&#x2F;SD 制作工具</strong>（适用于 PC 安装）</li>
+<li><strong>Etcher</strong> 烧写工具（支持 Windows&#x2F;macOS&#x2F;Linux，适用于树莓派）</li>
+</ul>
+<h3 id="3-系统镜像版本参考"><a href="#3-系统镜像版本参考" class="headerlink" title="3. 系统镜像版本参考"></a>3. 系统镜像版本参考</h3><table>
+<thead>
+<tr>
+<th>LibreELEC 版本</th>
+<th>Kodi 版本</th>
+<th>Linux 内核</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>12.0.2</td>
+<td>21.2</td>
+<td>6.6.x</td>
+</tr>
+<tr>
+<td>12.0 &#x2F; 12.0.1</td>
+<td>21.0&#x2F;21.1</td>
+<td>6.6.x</td>
+</tr>
+<tr>
+<td>11.0</td>
+<td>20.3</td>
+<td></td>
+</tr>
+<tr>
+<td>10.0</td>
+<td>19.5</td>
+<td></td>
+</tr>
+<tr>
+<td>9.2</td>
+<td>18.9</td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="💾-二、LibreELEC-安装"><a href="#💾-二、LibreELEC-安装" class="headerlink" title="💾 二、LibreELEC 安装"></a>💾 二、LibreELEC 安装</h2><h3 id="1-安装准备"><a href="#1-安装准备" class="headerlink" title="1. 安装准备"></a>1. 安装准备</h3><ul>
+<li>一个 <strong>U 盘</strong>（用于 PC&#x2F;电视盒子）或 <strong>Micro SD 卡</strong>（用于树莓派）</li>
+<li>安装目标设备（如 PC、盒子、树莓派）</li>
+<li>一台下载镜像并烧录的电脑（Windows&#x2F;macOS&#x2F;Linux）</li>
+<li>配件（树莓派）：HDMI、电源、网线&#x2F;无线模块</li>
+</ul>
+<h3 id="2-安装步骤"><a href="#2-安装步骤" class="headerlink" title="2. 安装步骤"></a>2. 安装步骤</h3><h4 id="方式一：使用-LibreELEC-制作工具（适用于-PC-电视盒子）"><a href="#方式一：使用-LibreELEC-制作工具（适用于-PC-电视盒子）" class="headerlink" title="方式一：使用 LibreELEC 制作工具（适用于 PC&#x2F;电视盒子）"></a><strong>方式一：使用 LibreELEC 制作工具（适用于 PC&#x2F;电视盒子）</strong></h4><ol>
+<li>打开 LibreELEC 制作工具。</li>
+<li>选择镜像文件，或根据提示下载适配版本。</li>
+<li>插入 U 盘，选择目标设备（确认无误）。</li>
+<li>点击“写入”，完成后拔出 U 盘。</li>
+<li>将 U 盘插入目标设备，进入 BIOS 设置 USB 启动。</li>
+<li>启动后按提示进行安装，安装完成后拔掉 U 盘。</li>
+<li>重启后进入 LibreELEC。</li>
+</ol>
+<h4 id="方式二：使用-Etcher-烧写（适用于树莓派）"><a href="#方式二：使用-Etcher-烧写（适用于树莓派）" class="headerlink" title="方式二：使用 Etcher 烧写（适用于树莓派）"></a><strong>方式二：使用 Etcher 烧写（适用于树莓派）</strong></h4><ol>
+<li>插入 Micro SD 卡，启动 Etcher。</li>
+<li>选择镜像文件，选择 SD 卡为目标设备。</li>
+<li>点击 <code>Flash!</code> 开始写入，完成后弹出卡。</li>
+<li>插入树莓派，连接电源&#x2F;HDMI 等启动设备。</li>
+<li>初次启动进入设置向导。</li>
+</ol>
+<hr>
+<h2 id="🛠️-三、LibreELEC-首次设置"><a href="#🛠️-三、LibreELEC-首次设置" class="headerlink" title="🛠️ 三、LibreELEC 首次设置"></a>🛠️ 三、LibreELEC 首次设置</h2><p>LibreELEC 首次启动会进入图形化配置向导：</p>
+<ol>
+<li><strong>语言选择</strong>：选择简体中文等首选语言。</li>
+<li><strong>主机名</strong>：修改默认名称（如 <code>LibreELEC</code>）。</li>
+<li><strong>网络连接</strong>：<ul>
+<li>有线：自动连接</li>
+<li>无线：手动输入密码连接</li>
+</ul>
+</li>
+<li><strong>服务配置</strong>：<ul>
+<li><strong>SSH</strong>：高级用途，非必须时建议关闭。</li>
+<li><strong>Samba (SMB)</strong>：用于局域网共享文件，建议开启。</li>
+</ul>
+</li>
+<li>设置完成后可进入 Kodi 主界面。</li>
+</ol>
+<hr>
+<h2 id="🎬-四、LibreELEC-Kodi-应用与设置"><a href="#🎬-四、LibreELEC-Kodi-应用与设置" class="headerlink" title="🎬 四、LibreELEC (Kodi) 应用与设置"></a>🎬 四、LibreELEC (Kodi) 应用与设置</h2><p>LibreELEC 的核心为 Kodi，配置 Kodi 才是系统的重点。</p>
+<h3 id="常用设置技巧"><a href="#常用设置技巧" class="headerlink" title="常用设置技巧"></a>常用设置技巧</h3><ul>
+<li><strong>电影集显示</strong>：<code>设置 → 媒体 → 视频</code> 开启“显示电影集”</li>
+<li><strong>视频卡顿优化</strong>：Kodi 21 支持缓存设置，可调节缓冲区大小</li>
+<li><strong>阿里云盘挂载</strong>：使用 WebDAV 或第三方插件作为视频源</li>
+<li><strong>首选语言&#x2F;字幕&#x2F;音轨</strong>：<ul>
+<li>设置默认语言为中文</li>
+<li>默认开启中文字幕</li>
+<li>默认音轨为国语</li>
+</ul>
+</li>
+<li><strong>启动画面</strong>：可更换或关闭启动图（Kodi 开机画面）</li>
+<li><strong>电影海报墙显示名称</strong>：修改 Kodi 界面设置</li>
+<li><strong>插件推荐</strong>：<ul>
+<li><code>PVR IPTV Simple Client</code>：电视直播</li>
+<li><code>Zimuku</code>：字幕库插件</li>
+<li><code>Emby / Jellyfin / Plex</code>：媒体服务器连接</li>
+<li><code>The Movie Database</code>：视频信息刮削器</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="🧯-五、LibreELEC-故障排除"><a href="#🧯-五、LibreELEC-故障排除" class="headerlink" title="🧯 五、LibreELEC 故障排除"></a>🧯 五、LibreELEC 故障排除</h2><h3 id="1-无法从-U-盘启动（电视盒子）"><a href="#1-无法从-U-盘启动（电视盒子）" class="headerlink" title="1. 无法从 U 盘启动（电视盒子）"></a>1. 无法从 U 盘启动（电视盒子）</h3><ul>
+<li>某些安卓盒子需刷入特殊固件或使用特定方式启动</li>
+<li>建议查阅对应芯片型号的教程</li>
+</ul>
+<h3 id="2-Samba-网络共享不可用"><a href="#2-Samba-网络共享不可用" class="headerlink" title="2. Samba 网络共享不可用"></a>2. Samba 网络共享不可用</h3><ul>
+<li>启用 LibreELEC 的 <code>Samba</code> 服务</li>
+<li>检查 Windows 防火墙&#x2F;局域网设置</li>
+</ul>
+<h3 id="3-Kodi-刮削器无法连接-themoviedb"><a href="#3-Kodi-刮削器无法连接-themoviedb" class="headerlink" title="3. Kodi 刮削器无法连接 themoviedb"></a>3. Kodi 刮削器无法连接 themoviedb</h3><ul>
+<li>可能与 <code>/storage/.kodi/addons</code> 目录下某些插件有关</li>
+</ul>
+<h3 id="4-HDMI-音频无法输出（树莓派）"><a href="#4-HDMI-音频无法输出（树莓派）" class="headerlink" title="4. HDMI 音频无法输出（树莓派）"></a>4. HDMI 音频无法输出（树莓派）</h3><ul>
+<li>解决方法：<ul>
+<li>在 <code>config.txt</code> 中添加 <code>hdmi_drive=2</code></li>
+<li>确保电视在树莓派启动前已开机并设定 HDMI 输入</li>
+<li>更换 HDMI 线缆，尝试不同的端口（HDMI0&#x2F;HDMI1）</li>
+<li>树莓派 5：断电静置数分钟后重启，再检查音频输出</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>希望本教程能帮助您顺利下载、安装并使用 LibreELEC。如果您在使用过程中遇到问题，欢迎查阅社区教程或继续探索更多 Kodi 插件扩展功能。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/" class="category-chain-item">学习心得</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/LibreELCE/" class="print-no-link">#LibreELCE</a>
+      
+        <a href="/tags/Kodi/" class="print-no-link">#Kodi</a>
+      
+        <a href="/tags/%E6%8C%87%E5%8D%97/" class="print-no-link">#指南</a>
+      
+        <a href="/tags/%E6%95%99%E7%A8%8B/" class="print-no-link">#教程</a>
+      
+        <a href="/tags/%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%99%A2/" class="print-no-link">#家庭影院</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>LibreELEC与Kodi指南</div>
+      <div>https://vgtmy.github.io/2025/05/30/LibreELEC与Kodi指南/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>二郎神表弟</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年5月30日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年5月30日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/05/26/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91-GitHub%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B%E6%8C%87%E5%8D%97/" title="博客部署到阿里云+GitHub自动部署全流程指南">
+                        <span class="hidden-mobile">博客部署到阿里云+GitHub自动部署全流程指南</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"mQO3a0s27rXVUDdKliTz6ywM-gzGzoHsz","appKey":"qMsSmB72ex2HFqtr0c1w4Igc","path":"window.location.pathname","placeholder":"请留下您的评论~","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>二郎神表弟2025</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>基于Fluid主题</span></a>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
