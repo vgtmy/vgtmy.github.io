@@ -34,5 +34,5 @@ jobs:
         key: ${{ secrets.SERVER_SSH_KEY }}
         source: "public/*"
         target: "/var/www/html/"
-        rm: true
+        
 
