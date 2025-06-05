@@ -3,7 +3,7 @@ name: Hexo Deploy to Aliyun
 on:
   push:
     branches:
-      - main   # 根据你的默认分支调整，如是 master 就改成 master
+      - main
 
 jobs:
   build-and-deploy:
@@ -26,7 +26,13 @@ jobs:
     - name: Generate static files
       run: hexo generate
 
-    - name: Deploy to server via SSH
+    - name: Test SSH Connection
+      run: |
+        echo "${{ secrets.SERVER_SSH_KEY }}" > key.pem
+        chmod 600 key.pem
+        ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "echo ✅ SSH success"
+
+    - name: Deploy to server via SCP
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.SERVER_HOST }}
@@ -34,5 +40,3 @@ jobs:
         key: ${{ secrets.SERVER_SSH_KEY }}
         source: "public/*"
         target: "/var/www/html/"
-        
-
