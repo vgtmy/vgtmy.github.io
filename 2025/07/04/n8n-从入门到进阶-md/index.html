@@ -1,0 +1,1248 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="二郎神表弟">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="n8n（发音为 “n-eight-n”）是一个强大的低代码自动化工具，它允许您连接各种具有 API 的应用程序，并通过可视化工作流实现数据自动化流转，从而显著提升效率并降低重复性任务的成本。无论是简单的数据传输还是复杂的工作流，n8n 都能提供灵活的解决方案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="n8n:从入门到进阶.md">
+<meta property="og:url" content="https://vgtmy.github.io/2025/07/04/n8n-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%BF%9B%E9%98%B6-md/index.html">
+<meta property="og:site_name" content="光阴的故事">
+<meta property="og:description" content="n8n（发音为 “n-eight-n”）是一个强大的低代码自动化工具，它允许您连接各种具有 API 的应用程序，并通过可视化工作流实现数据自动化流转，从而显著提升效率并降低重复性任务的成本。无论是简单的数据传输还是复杂的工作流，n8n 都能提供灵活的解决方案。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://vgtmy.github.io/img/n8n.jpg">
+<meta property="article:published_time" content="2025-07-04T08:43:41.000Z">
+<meta property="article:modified_time" content="2025-07-04T08:55:47.697Z">
+<meta property="article:author" content="二郎神表弟">
+<meta property="article:tag" content="n8n">
+<meta property="article:tag" content="自动化">
+<meta property="article:tag" content="工作流">
+<meta property="article:tag" content="API">
+<meta property="article:tag" content="入门">
+<meta property="article:tag" content="进阶">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vgtmy.github.io/img/n8n.jpg">
+  
+  
+  
+  <title>n8n:从入门到进阶.md - 光阴的故事</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"vgtmy.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":90,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"88KjzOxOR2oBRVtIgnppDmWG-gzGzoHsz","app_key":"4LSiCze99E6WNi3YBrbrToct","server_url":"https://88kjzoxo.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-05-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>光阴的故事</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://news.erlangsh.us.kg" target="_self">
+                <i class="iconfont icon-news-fill"></i>
+                <span>今日新闻</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="n8n:从入门到进阶.md"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        二郎神表弟
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-04 16:43" pubdate>
+          2025年7月4日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          42 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">n8n:从入门到进阶.md</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年7月4日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>n8n（发音为 “n-eight-n”）是一个强大的低代码自动化工具，它允许您连接各种具有 API 的应用程序，并通过可视化工作流实现数据自动化流转，<br>从而显著提升效率并降低重复性任务的成本。无论是简单的数据传输还是复杂的工作流，n8n 都能提供灵活的解决方案。</p>
+<span id="more"></span>
+
+<h2 id="🌍-一、n8n-版本选择"><a href="#🌍-一、n8n-版本选择" class="headerlink" title="🌍 一、n8n 版本选择"></a>🌍 一、n8n 版本选择</h2><p>在开始使用 n8n 之前，您需要选择适合您的运行方式：云版本或本地自托管版本。</p>
+<ul>
+<li><strong>n8n 云版本</strong>：由 n8n 官方提供托管服务。<ul>
+<li><strong>优点</strong>：24&#x2F;7 全天候运行，无需自行维护服务器，设置简便。</li>
+<li><strong>缺点</strong>：需要支付费用。</li>
+</ul>
+</li>
+<li><strong>本地自托管版本</strong>：在您自己的服务器或本地计算机上运行 n8n。<ul>
+<li><strong>优点</strong>：免费（社区版），拥有完全的控制权和灵活性，更注重隐私和安全，您可以完全掌控数据流和存储。对于遵守 GDPR 或 CCPA 等隐私法规至关重要。</li>
+<li><strong>缺点</strong>：需要一定的技术基础和服务器维护经验。</li>
+</ul>
+</li>
+</ul>
+<p>本教程将重点介绍如何在本地机器上自托管 n8n，以便您免费体验其功能，这非常适合学习和实验。</p>
+<h2 id="🚀-二、n8n-本地快速安装-使用-npm"><a href="#🚀-二、n8n-本地快速安装-使用-npm" class="headerlink" title="🚀 二、n8n 本地快速安装 (使用 npm)"></a>🚀 二、n8n 本地快速安装 (使用 npm)</h2><p>使用 npm (Node Package Manager) 是在本地运行 n8n 的推荐且最便捷的方式之一。</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li><p><strong>⚙️ 前提条件：安装 Node.js</strong></p>
+<ul>
+<li><strong>要求</strong>：请确保您的机器上已安装 <strong>Node.js 18 或更高版本</strong>。</li>
+<li><strong>下载 Node.js</strong>：<ul>
+<li>访问 Node.js 官方网站：<a target="_blank" rel="noopener" href="https://nodejs.org/">https://nodejs.org/</a></li>
+<li>在官网首页，您通常会看到两个下载选项：LTS (Long Term Support长期支持版) 和 Current (最新版)。 <strong>推荐下载并安装 LTS 版本</strong>，因为它更稳定。</li>
+<li>根据您的操作系统（Windows, macOS, Linux）下载对应的安装包。</li>
+</ul>
+</li>
+<li><strong>安装 Node.js</strong>：<ul>
+<li><strong>Windows</strong>: 双击下载的 <code>.msi</code> 安装包，按照安装向导的提示完成安装。 通常保持默认设置即可。 安装程序会自动将 Node.js 和 npm 添加到系统环境变量中。</li>
+<li><strong>macOS</strong>: 双击下载的 <code>.pkg</code> 安装包，按照安装向导的提示完成安装。</li>
+<li><strong>Linux</strong>: 您可以通过包管理器（如 <code>apt</code> for Debian&#x2F;Ubuntu, <code>yum</code> for Fedora）或从官网下载二进制文件进行安装。 例如，在 Debian&#x2F;Ubuntu 上，您可以参考 NodeSource 的指引来安装较新版本的 Node.js。</li>
+</ul>
+</li>
+<li><strong>验证 Node.js 和 npm 安装</strong>：安装完成后，打开一个新的终端或命令提示符窗口，输入以下命令并按回车键：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">12<br></code></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">-vnpm</span> -v<br></code></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>  如果分别显示了 Node.js 和 npm 的版本号（例如 <code>v18.x.x</code> 和 <code>9.x.x</code>），则表示安装成功。</p>
+</li>
+<li><p><strong>🖥️ 打开终端或命令提示符</strong></p>
+<ul>
+<li><strong>Windows</strong>:<ul>
+<li>按 <code>Win</code> 键，输入 <code>cmd</code> 或 <code>PowerShell</code>，然后按回车。</li>
+</ul>
+</li>
+<li><strong>macOS</strong>:<ul>
+<li>打开“应用程序” &gt; “实用工具” &gt; “终端”。</li>
+<li>或者使用 Spotlight 搜索 (Command + Space)，输入 <code>Terminal</code> 并按回车。</li>
+</ul>
+</li>
+<li><strong>Linux</strong>:<ul>
+<li>通常使用 <code>Ctrl + Alt + T</code> 快捷键。</li>
+<li>或者在应用程序菜单中找到“终端”或“Terminal”。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>📦 全局安装 n8n</strong></p>
+<ul>
+<li>在打开的终端或命令提示符中，输入以下命令并按回车键：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">1<br></code></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> n8n -g<br></code></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>参数 <code>-g</code> 表示全局安装，这样 <code>n8n</code> 命令就可以在系统的任何路径下执行。</li>
+<li>安装过程可能需要几分钟，具体时间取决于您的网络速度。</li>
+<li><strong>权限问题（macOS&#x2F;Linux）</strong>：如果在 macOS 或 Linux 上遇到权限错误 (EACCES)，您可能需要在命令前加上 <code>sudo</code>：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">1<br></code></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> npm install n8n -g<br></code></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>  然后输入您的系统密码。 或者，更好的做法是配置 npm 以避免使用 <code>sudo</code>，但这超出了本快速入门的范围。</p>
+</li>
+<li><p><strong>⚡ 启动 n8n</strong></p>
+<ul>
+<li>安装完成后，在终端或命令提示符中输入以下任一命令并按回车键：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">1<br></code></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">n8n<br></code></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>  或者 </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">1<br></code></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">n8n <span class="hljs-literal">start</span><br></code></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>您会看到终端输出一些启动信息，通常最后会提示 n8n 正在运行并在特定端口（默认为 5678）监听。</li>
+</ul>
+</li>
+<li><p><strong>🌐 访问 n8n 用户界面</strong></p>
+<ul>
+<li>当终端显示 n8n 已成功启动后，打开您的网页浏览器（如 Chrome, Firefox, Edge 等）。</li>
+<li>在地址栏输入：<code>http://localhost:5678</code> 并按回车。</li>
+<li>此时，您应该能看到 n8n 的欢迎界面或管理员账户注册页面。</li>
+</ul>
+</li>
+<li><p><strong>🔑 设置管理员账户 (Owner Account)</strong></p>
+<ul>
+<li>首次访问时，n8n 会引导您设置管理员账户。 请按照页面提示填写您的邮箱、设置密码。</li>
+<li><strong>重要提示</strong>：请务必牢记此密码。 对于自托管的 n8n 社区版，默认不提供直接的“忘记密码”找回功能（需要通过命令行或修改配置文件等更复杂的方式重置，或依赖您配置的邮件服务）。</li>
+<li>完成注册后，您将进入 n8n 的主仪表板界面。</li>
+</ul>
+</li>
+<li><p><strong>🔧 （可选但建议）将 n8n 执行路径添加到环境变量 (如果未通过 npm 全局安装自动完成)</strong></p>
+<ul>
+<li><strong>说明</strong>：通常情况下，使用 <code>npm install n8n -g</code> 进行全局安装后，npm 会自动处理路径问题，使得您可以从任何终端窗口直接运行 <code>n8n</code> 命令。 但如果由于某些原因（例如 npm 配置问题或未使用 <code>-g</code> 安装后移动了文件），系统找不到 <code>n8n</code> 命令，您可能需要手动将其执行路径添加到系统的 <code>PATH</code> 环境变量中。</li>
+<li><strong>如何查找 n8n 执行路径</strong>：如果 npm 全局安装成功，通常不需要这一步。 如果需要，可以使用 <code>npm root -g</code> 查看全局包的安装目录，n8n 的可执行文件通常在其 <code>bin</code> 子目录中，或者在 npm 的全局 <code>bin</code> 目录中。</li>
+<li><strong>如何添加环境变量</strong>：<ul>
+<li><strong>Windows</strong>: 搜索“环境变量” -&gt; “编辑系统环境变量” -&gt; “环境变量…”按钮 -&gt; 在“系统变量”或“用户变量”中找到 <code>Path</code> -&gt; 编辑 -&gt; 新建，然后添加包含 <code>n8n.cmd</code> (或类似可执行文件) 的目录路径。</li>
+<li><strong>macOS&#x2F;Linux</strong>: 通常编辑 <code>~/.bash_profile</code>, <code>~/.zshrc</code> (取决于您的 shell) 文件，添加类似 <code>export PATH=&quot;$PATH:/path/to/n8n/bin&quot;</code> 的行 (将 <code>/path/to/n8n/bin</code> 替换为实际路径)，然后运行 <code>source ~/.bash_profile</code> 或 <code>source ~/.zshrc</code> 使其生效。</li>
+</ul>
+</li>
+<li><strong>再次强调</strong>：对于大多数用户，通过 <code>npm install n8n -g</code> 正确安装后，这一步通常是<strong>不必要的</strong>。</li>
+</ul>
+</li>
+</ol>
+<h2 id="🖼️-三、用户界面概览"><a href="#🖼️-三、用户界面概览" class="headerlink" title="🖼️ 三、用户界面概览"></a>🖼️ 三、用户界面概览</h2><p>n8n 的主界面设计直观，主要包含以下几个部分：</p>
+<ul>
+<li><strong>左侧边栏</strong>：包含多个选项。<ul>
+<li><strong>模板</strong>：提供了 n8n 官方和社区预构建的工作流模板，可以快速启动自动化之旅。</li>
+<li><strong>变量</strong>：仅在企业版和云托管服务中可用。</li>
+<li><strong>执行记录</strong>：显示您的工作流日志以及执行的成功与否。</li>
+<li><strong>帮助</strong>：提供了 n8n 的官方文档和论坛链接。</li>
+</ul>
+</li>
+<li><strong>主窗口</strong>：显示您创建的所有工作流。 您可以通过点击“从头开始”按钮或橙色的“添加工作流”按钮来添加新的工作流。</li>
+<li><strong>设置</strong>：在屏幕底部点击三个点可以访问设置。 许多设置仅在企业版中提供，但您可以设置界面模式（亮色&#x2F;暗色）。 您也可以在工作流的设置中设置指定的时区，以确保计划触发的时间与您所在地一致。</li>
+</ul>
+<p>n8n 基于工作流程运行，这与 Zapier 的 Zaps 和 Make.com 的 Scenarios 类似。</p>
+<h2 id="🛠️-四、入门：构建第一个工作流"><a href="#🛠️-四、入门：构建第一个工作流" class="headerlink" title="🛠️ 四、入门：构建第一个工作流"></a>🛠️ 四、入门：构建第一个工作流</h2><p>构建工作流是 n8n 的核心操作。</p>
+<h3 id="🧠-1、核心概念："><a href="#🧠-1、核心概念：" class="headerlink" title="🧠 1、核心概念："></a>🧠 1、核心概念：</h3><ul>
+<li><strong>工作流 (Workflow)</strong>：通常按照从左到右的顺序执行。</li>
+<li><strong>节点 (Node)</strong>：工作流的基本组成单元，每个节点接收输入数据，进行处理，然后产生输出数据。</li>
+<li><strong>数据流 (Data Flow)</strong>：数据在节点之间以 <strong>JSON 对象</strong> 的形式传递。</li>
+<li><strong>数据迭代 (Data Iteration)</strong>：当数据以列表或数组形式存储时，n8n 会自动循环遍历或迭代数据，无需手动创建循环。</li>
+</ul>
+<h3 id="🧩-2、节点界面组成："><a href="#🧩-2、节点界面组成：" class="headerlink" title="🧩 2、节点界面组成："></a>🧩 2、节点界面组成：</h3><p>双击任何节点，会显示其详情视图：</p>
+<ul>
+<li><strong>Input (左侧)</strong>：显示节点接收到的输入数据。</li>
+<li><strong>Node Details&#x2F;Parameters (中间)</strong>：节点的配置和参数设置。 这些设置根据节点类型而异。</li>
+<li><strong>Output (右侧)</strong>：展示节点处理后输出的数据，这对于调试和优化至关重要。</li>
+<li><strong>Docs</strong>：提供了该节点的文档链接。</li>
+</ul>
+<h3 id="✅-3、节点测试-Test-Step-："><a href="#✅-3、节点测试-Test-Step-：" class="headerlink" title="✅ 3、节点测试 (Test Step)："></a>✅ 3、节点测试 (Test Step)：</h3><ul>
+<li>利用“Test Step”按钮，您可以单独执行当前节点并查看其输出结果，而无需执行整个工作流。 这对于调试和优化节点配置非常有用。</li>
+<li>在输出视图中，您可以选择不同的数据视图（表格、JSON、架构）。 右上角的“固定”(Pin) 按钮非常实用，可以保持数据静态，避免每次测试时都进行查询。</li>
+</ul>
+<h3 id="💡-4、使用表达式访问数据："><a href="#💡-4、使用表达式访问数据：" class="headerlink" title="💡 4、使用表达式访问数据："></a>💡 4、使用表达式访问数据：</h3><ul>
+<li>在节点配置中，可以使用花括号 <code>&#123;&#125;</code> 来访问来自先前节点的数据，这实际上是一个 <strong>JavaScript 表达式</strong>。</li>
+<li>将需要插入变量的字段设置为“<strong>表达式 (Expression)</strong>”模式（通常会显示绿色文本），而不是“固定 (Fix)”模式。</li>
+<li>您可以通过 JSON 表示法访问数据，例如 <code>&#123;&#123; $json.customerID &#125;&#125;</code>。</li>
+<li>由于在花括号内使用 JavaScript，您还可以使用其他的 JavaScript 表达式，例如插入日期和时间、转换数据、验证数据等。 您只能在花括号中使用 JavaScript，不能使用 Python。 Code 节点支持 JavaScript 和 Python。</li>
+</ul>
+<h3 id="📝-5、步骤示例：构建一个简单的个性化消息工作流-基于源"><a href="#📝-5、步骤示例：构建一个简单的个性化消息工作流-基于源" class="headerlink" title="📝 5、步骤示例：构建一个简单的个性化消息工作流 (基于源)"></a>📝 5、步骤示例：构建一个简单的个性化消息工作流 (基于源)</h3><ol>
+<li><strong>添加第一个节点 (数据获取)</strong>：使用一个节点获取客户数据列表（教程示例中使用的是 n8n 的演示节点，无需关心数据来源）。</li>
+<li><strong>测试第一个节点</strong>：点击“Test Step”运行此节点，并在右侧查看其输出（例如，获取了五个客户的数据记录）。</li>
+<li><strong>添加第二个节点 (数据提取和准备)</strong>：添加一个用于提取和准备数据的节点（例如 <code>Edit Fields</code> 节点）。<ul>
+<li>双击节点查看其输入（来自前一个节点的客户数据）。</li>
+<li>在节点设置中，删除默认字段，添加新的字段。</li>
+<li><strong>提取字段</strong>：将前一个节点的输出数据中需要提取的字段（如 ID、姓名、描述）拖拽到新添加的字段中。</li>
+<li>设置字段类型（例如，字符串）。</li>
+<li>确认字段设置为“表达式”。</li>
+</ul>
+</li>
+<li><strong>测试第二个节点</strong>：点击“Test Step”，可以看到它根据设置迭代处理了所有输入项目，提取了指定字段并创建了新的数据列表。</li>
+<li><strong>添加第三个节点 (个性化消息)</strong>：点击加号按钮，添加一个用于发送个性化消息的节点（教程示例中使用“客户消息”节点）。<ul>
+<li>双击节点，查看其输入（来自第二个节点的输出数据）。</li>
+<li><strong>构建消息内容</strong>：在消息文本框中输入固定文本，并使用表达式插入变量。 例如，输入“您好”，然后将“客户姓名”字段拖入；输入“您的描述是”，然后将“客户描述”字段拖入。</li>
+<li><strong>务必确认</strong>：拖入的字段设置为“表达式”模式，并显示绿色文本。</li>
+</ul>
+</li>
+<li><strong>测试第三个节点</strong>：点击“Test Step”，可以看到它迭代处理了所有输入项目，并为每个客户创建了自定义消息。</li>
+<li><strong>保存工作流</strong>：点击右上角的 [Save] 按钮保存您的工作流。</li>
+<li><strong>工作流管理</strong>：您可以双击工作流名称进行重命名。 您还可以添加标签以便筛选和管理工作流。 在主页可以按标签筛选或按关键词搜索工作流。</li>
+</ol>
+<h2 id="🌟-五、进阶：探索更多功能"><a href="#🌟-五、进阶：探索更多功能" class="headerlink" title="🌟 五、进阶：探索更多功能"></a>🌟 五、进阶：探索更多功能</h2><p>掌握了基础知识后，您可以深入探索 n8n 的强大功能。</p>
+<h3 id="📌-1、节点类型详解"><a href="#📌-1、节点类型详解" class="headerlink" title="📌 1、节点类型详解"></a>📌 1、节点类型详解</h3><p>n8n 提供了丰富多样的节点来构建复杂的工作流。</p>
+<ul>
+<li><strong>触发器节点 (Trigger Nodes)</strong>：定义工作流何时以及如何开始。<ul>
+<li><strong>Manual Trigger</strong>：手动启动工作流，适用于开发和测试。</li>
+<li><strong>Schedule Trigger</strong>：按计划时间触发工作流，可使用 Cron 表达式或时间间隔设置。</li>
+<li><strong>On App Event</strong>：由其他第三方应用程序中的事件触发。</li>
+<li><strong>On Webhook</strong>：接收到 HTTP 请求时触发工作流。</li>
+<li><strong>On Form Submission</strong>：提交表单时触发。</li>
+<li><strong>Execute Workflow</strong>：被其他工作流调用作为子工作流执行。</li>
+<li><strong>Chat Message</strong>：在对话时触发工作流，常用于 AI Agent 和大型语言模型应用，如构建 RAG 系统。</li>
+</ul>
+</li>
+<li><strong>应用节点 (App Nodes &#x2F; Action Nodes)</strong>：在不同的第三方应用中执行操作。 n8n 集成了多种常见应用，如 Gmail, Telegram, Shopify, MySQL, Pinecone, Supabase 等。 您可以通过搜索找到需要的应用节点。</li>
+<li><strong>数据转换节点 (Data Transformation Nodes)</strong>：用于对数据进行操作和转换。<ul>
+<li><strong>Code</strong>：允许您编写 JavaScript 或 Python 代码片段来处理数据。</li>
+<li><strong>Edit Fields</strong>：添加、移除或修改 JSON 数据中的字段，是数据处理的重要节点。</li>
+<li><strong>Merge</strong>：将来自不同节点的数据融合在一起。</li>
+<li><strong>HTML</strong>：提取 HTML 中的信息。</li>
+<li><strong>Limit</strong>：限制处理的数据项数量。</li>
+</ul>
+</li>
+<li><strong>流程控制节点 (Flow Nodes)</strong>：控制工作流的执行流程。<ul>
+<li><strong>Filter</strong>：根据条件过滤数据。</li>
+<li><strong>IF</strong>：基于条件拆分工作流。</li>
+<li><strong>Loop</strong>：循环处理数据项。</li>
+<li><strong>Wait</strong>：等待上一个节点执行完成。</li>
+<li><strong>Execute Workflow</strong>：执行另一个工作流。</li>
+</ul>
+</li>
+</ul>
+<h3 id="🤖-2、AI-自动化"><a href="#🤖-2、AI-自动化" class="headerlink" title="🤖 2、AI 自动化"></a>🤖 2、AI 自动化</h3><p>n8n 提供了强大的 AI 自动化能力，特别适用于构建自定义的 AI 应用程序。</p>
+<ul>
+<li><strong>n8n for AI</strong>：利用 n8n 的能力创建自定义 AI 应用。</li>
+<li><strong>构建 AI Agent</strong>：通过连接特定的节点来构建 AI Agent。 核心节点包括：<ul>
+<li><strong>Chat Model</strong>：连接各种大型语言模型 (LLM)，如 OpenAI, Gemini 等。</li>
+<li><strong>Memory</strong>：为 AI Agent 添加长期记忆，使其在一定程度上超越上下文限制。</li>
+<li><strong>Tools</strong>：允许 AI Agent 调用外部工具，例如向量数据库 Pinecone 或 Supabase 来构建 RAG 系统。</li>
+</ul>
+</li>
+<li><strong>RAG (检索增强生成)</strong>：结合外部知识库（如数据库、文档）增强 AI Agent 生成响应的能力。 RAG 适用于智能客服、内容创作、知识管理、个性化推荐等场景。</li>
+<li>n8n 也支持 LangChain 节点，便于将 AI 功能集成到工作流中。</li>
+</ul>
+<h3 id="🔗-3、集成与连接"><a href="#🔗-3、集成与连接" class="headerlink" title="🔗 3、集成与连接"></a>🔗 3、集成与连接</h3><p>n8n 通过多种方式连接外部服务和应用。</p>
+<ul>
+<li><strong>HTTP Request</strong>：允许您主动向外部 API 发送请求，获取数据。 例如，获取天气预报或股票价格。</li>
+<li><strong>Webhook</strong>：n8n 可以创建一个 Webhook URL，被动接收外部服务推送的消息，从而触发工作流。 例如，接收支付平台的支付成功通知。 Webhooks 是 n8n 所有计划都支持的功能，而在 Zapier 中是高级功能。</li>
+<li><strong>数据库连接</strong>：可以直接连接到 MySQL、Pinecone、Supabase 等数据库进行配置和操作。 这里的连接通常是指配置好连接信息，而不是让大模型生成 SQL。</li>
+<li><strong>定制节点 (Custom Nodes)</strong>：如果 n8n 没有您需要的集成，您可以编写自己的定制节点来调用外部服务或转换数据。 n8n 的代码是开源的，您可以自由定制。</li>
+<li><strong>MCP 服务端</strong>：n8n 也支持 MCP 服务器的配置和使用。</li>
+</ul>
+<h3 id="⚙️-4、复杂工作流逻辑与错误处理"><a href="#⚙️-4、复杂工作流逻辑与错误处理" class="headerlink" title="⚙️ 4、复杂工作流逻辑与错误处理"></a>⚙️ 4、复杂工作流逻辑与错误处理</h3><p>n8n 擅长处理复杂的逻辑。</p>
+<ul>
+<li><strong>分支与合并</strong>：可以使用 IF 或 Switch 节点进行条件分支。 Merge 节点用于合并来自不同分支的数据流。</li>
+<li><strong>循环</strong>：Loop 节点用于循环处理数据列表。</li>
+<li><strong>错误处理 (Error Handling)</strong>：n8n 提供了错误处理工作流，可以在主工作流失败时触发。 节点设置中的 <code>onError</code> 选项可以定义节点遇到错误时的行为，例如停止或忽略并继续。 <code>retryOnFail</code> 选项可以使节点在执行失败时重试直到成功。</li>
+</ul>
+<h3 id="👨‍💻-5、开发者工具"><a href="#👨‍💻-5、开发者工具" class="headerlink" title="👨‍💻 5、开发者工具"></a>👨‍💻 5、开发者工具</h3><p>n8n 提供了一些面向开发者的功能，使其比其他无代码工具更灵活。</p>
+<ul>
+<li><strong>Code 节点</strong>：直接在工作流中编写 JavaScript 或 Python 代码。</li>
+<li><strong>输入&#x2F;输出视图</strong>：清晰展示节点的数据输入和输出，便于调试。</li>
+<li><strong>数据固定 (Data Pinning)</strong>：固定节点的输出数据，在后续测试中重复使用，无需重新获取。</li>
+<li><strong>环境 (Environments)</strong>：支持区分开发、测试、生产环境。</li>
+<li><strong>版本控制</strong>：可以使用 Git 对工作流进行版本控制和备份。</li>
+<li><strong>Sticky Notes</strong>：在工作流画布上添加注释。</li>
+</ul>
+<h2 id="🆚-六、n8n-vs-Zapier-Make"><a href="#🆚-六、n8n-vs-Zapier-Make" class="headerlink" title="🆚 六、n8n vs Zapier&#x2F;Make"></a>🆚 六、n8n vs Zapier&#x2F;Make</h2><p>了解 n8n 的定位有助于更好地选择工具。 n8n 和 Zapier&#x2F;Make 都旨在实现数据集成和工作流自动化，但适用于不同复杂度和定制需求的场景。</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>n8n</th>
+<th>Zapier</th>
+<th>Make.com</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>上手难度</strong></td>
+<td>相对较高</td>
+<td>最简单</td>
+<td>介于两者之间</td>
+</tr>
+<tr>
+<td><strong>定价模式</strong></td>
+<td>按工作流执行次数收费，不限制任务&#x2F;步骤数量；自托管免费&#x2F;便宜</td>
+<td>按任务数量收费；每一步操作通常算作一个任务</td>
+<td>相对 Zapier 更合理</td>
+</tr>
+<tr>
+<td><strong>自托管</strong></td>
+<td><strong>支持 (免费)</strong></td>
+<td>不支持</td>
+<td>不支持 (基于源信息推断，源 称其为闭源软件)</td>
+</tr>
+<tr>
+<td><strong>灵活性</strong></td>
+<td><strong>非常高</strong> (支持代码，可定制节点，灵活的逻辑控制)</td>
+<td>相对较低 (代码受限，复杂逻辑构建困难)</td>
+<td>相对较高 (支持复杂工作流)</td>
+</tr>
+<tr>
+<td><strong>集成数量</strong></td>
+<td>300+ (数量相对较少，但通过 HTTP 请求和定制节点弥补)</td>
+<td>5,000+ (数量最多)</td>
+<td>数量少于 Zapier，多于 n8n</td>
+</tr>
+<tr>
+<td><strong>复杂逻辑</strong></td>
+<td>支持分支、循环、合并、Code 节点等</td>
+<td>复杂逻辑构建困难，Code 节点有严格限制</td>
+<td>支持复杂工作流</td>
+</tr>
+<tr>
+<td><strong>AI 自动化</strong></td>
+<td>提供 LangChain 节点，可构建高级 AI Agent</td>
+<td>提供 AI 驱动的 Zap 构建，AI 助手等</td>
+<td>(源信息未详细提及 AI 自动化对比，但作为自动化平台通常也支持 AI 集成)</td>
+</tr>
+<tr>
+<td><strong>开源&#x2F;闭源</strong></td>
+<td><strong>开源</strong> (Source-available)</td>
+<td>闭源</td>
+<td>闭源</td>
+</tr>
+<tr>
+<td><strong>社区</strong></td>
+<td>活跃，40K+ 成员，提供社区论坛支持</td>
+<td>提供社区支持，高级计划提供付费支持</td>
+<td>(源信息未详细提及)</td>
+</tr>
+</tbody></table>
+<p><strong>总结对比</strong>：</p>
+<ul>
+<li><strong>Zapier</strong>：集成数量最多，上手最容易，但价格最昂贵，灵活性最低，适合简单的线性自动化任务。</li>
+<li><strong>n8n</strong>：灵活性最高，可进行无限定制，支持自托管，价格便宜（尤其是自托管），但集成数量最少，上手难度相对较高，适合技术团队构建复杂工作流。</li>
+<li><strong>Make.com</strong>：介于 Zapier 和 n8n 之间，集成数量居中，支持构建复杂工作流，价格也更合理。</li>
+</ul>
+<p>许多技术人员青睐 n8n 的灵活性、自托管选项和强大的定制能力。</p>
+<h2 id="📚-七、社区与资源"><a href="#📚-七、社区与资源" class="headerlink" title="📚 七、社区与资源"></a>📚 七、社区与资源</h2><p>n8n 拥有一个开放活跃的社区。</p>
+<ul>
+<li><strong>社区论坛</strong>：您可以在论坛上提问，通常能得到快速响应。</li>
+<li><strong>官方文档</strong>：提供详细的节点和功能说明。</li>
+<li><strong>工作流模板</strong>：官方和社区提供了大量的预构建模板，可以作为起点或学习参考。</li>
+<li><strong>社区贡献</strong>：社区成员会分享自己的模板和心得。</li>
+<li>您还可以找到许多关于 n8n 的教程和案例分享视频或文章。</li>
+</ul>
+<h2 id="🎉-八、总结"><a href="#🎉-八、总结" class="headerlink" title="🎉 八、总结"></a>🎉 八、总结</h2><p>n8n 是一个强大且灵活的自动化工具，特别适合需要高度定制和控制的工作流场景，尤其对于技术团队而言。 从简单的 npm 安装开始，您可以逐步掌握节点的使用、数据的处理和工作流的构建。 通过利用其表达式、AI 能力、丰富的节点和灵活的逻辑控制，您可以构建出各种复杂的自动化和智能化应用，让 AI 真正替代重复性工作。</p>
+<p>希望这篇指南能为您提供扎实的 n8n 入门知识，并帮助您开启智能自动化之旅！ </p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="category-chain-item">学习笔记</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BA%94%E7%94%A8%E6%8C%87%E5%8D%97/" class="category-chain-item">应用指南</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/n8n/" class="print-no-link">#n8n</a>
+      
+        <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" class="print-no-link">#自动化</a>
+      
+        <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" class="print-no-link">#工作流</a>
+      
+        <a href="/tags/API/" class="print-no-link">#API</a>
+      
+        <a href="/tags/%E5%85%A5%E9%97%A8/" class="print-no-link">#入门</a>
+      
+        <a href="/tags/%E8%BF%9B%E9%98%B6/" class="print-no-link">#进阶</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>n8n:从入门到进阶.md</div>
+      <div>https://vgtmy.github.io/2025/07/04/n8n-从入门到进阶-md/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>二郎神表弟</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月4日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年7月4日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/07/03/docker%E5%AE%9E%E6%88%98%E7%B2%BE%E9%80%9A%E6%94%BB%E7%95%A5/" title="docker实战精通攻略">
+                        <span class="hidden-mobile">docker实战精通攻略</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"mQO3a0s27rXVUDdKliTz6ywM-gzGzoHsz","appKey":"qMsSmB72ex2HFqtr0c1w4Igc","path":"window.location.pathname","placeholder":"请留下您的评论~","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>二郎神表弟2025</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>基于Fluid主题</span></a>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      赣ICP备2025064093号
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
